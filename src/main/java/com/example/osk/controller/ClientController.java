@@ -25,7 +25,7 @@ public class ClientController {
     public String getClientsList(Model model) {
         List<Client> allClients = this.clientService.getAllClients();
         model.addAttribute("client", allClients);
-        return "clients/TODO";
+        return "index";
     }
 
     // only get view for add new client
