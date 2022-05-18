@@ -21,7 +21,7 @@ public class ClientService {
         this.clientRepository.save(client);
     }
 
-    public Client getClient(Long id) {
+    public Client getClientById(Long id) {
         return this.clientRepository.findById(id).orElse(null);
     }
 
