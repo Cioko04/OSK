@@ -1,6 +1,5 @@
 package com.example.osk.controller;
 
-import com.example.osk.model.Client;
 import com.example.osk.model.Instructor;
 import com.example.osk.service.InstructorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,25 +20,46 @@ public class InstructorController {
         this.instructorService = instructorService;
     }
 
-    // getting all the instructors for showing on page
+    // getting a view of all the instructors with model of them
     @GetMapping("/instructors")
-    public String getClientsList(Model model) {
+    public String getInstructorsList(Model model) {
         List<Instructor> allInstructors = this.instructorService.getAllInstructors();
         model.addAttribute("instructor", allInstructors);
-        return "instructors/TODO";
+        return "instructors/instructorsList";
     }
 
-    // only get view for add new instructor
+    // getting the view of adding a new instructor
     @GetMapping("/addInstructor")
     public String getAddInstructorView() {
-        return "instructors/TODO";
+        return "instructors/addInstructor";
     }
 
-    // save instructor in DB then redirecting a view
+    //getting the view of editing a certain instructor with model of that instructor
+    @GetMapping("/editInstructor/{id}")
+    public String getEditInstructorView(@PathVariable Long id, Model model) {
+        Instructor foundedInstructor = this.instructorService.getInstructor(id);
+        model.addAttribute("instructor", foundedInstructor);
+        return "instructors/editInstructor";
+    }
+
+    // confirming of adding a new instructor on page then redirecting a view to /instructors
     @PostMapping("/addInstructor")
     public RedirectView addInstructor (@ModelAttribute Instructor instructor) {
         this.instructorService.addInstructor(instructor);
         return new RedirectView("/instructors");
     }
 
+    // confirming of editing a certain instructor and redirecting a view to /instructors
+    @PostMapping("/editInstructor/{id}")
+    public RedirectView acceptEditingInstructor(@ModelAttribute Instructor instructor) {
+        this.instructorService.editInstructor(instructor);
+        return new RedirectView("/instructors");
+    }
+
+    //confirming of removing a certain instructor on page from OSC and redirecting a view to /instructors
+    @PostMapping("/removeInstructor/{id}")
+    public RedirectView removeInstructor(@PathVariable("id") Long id) {
+        this.instructorService.deleteInstructor(id);
+        return new RedirectView("/instructors");
+    }
 }
