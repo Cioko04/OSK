@@ -45,7 +45,7 @@ public class ClientController {
     // get client for only edit view
     @GetMapping("/editClient/{id}")
     public String getEditClient(@PathVariable("id") Long id, Model model) {
-        Client client = clientService.getClient(id);
+        Client client = clientService.getClientById(id);
         model.addAttribute("client", client);
         return "clients/editPerson";
     }
@@ -54,7 +54,7 @@ public class ClientController {
     @PostMapping("/addClient/{id}")
     public RedirectView postEditClient(@Valid @ModelAttribute Client newClient, @PathVariable("id") Long id) {
         clientService.editClient(newClient);
-        return new RedirectView("/editClient/{id}");
+        return new RedirectView("/clients");
     }
 
     // delete client
