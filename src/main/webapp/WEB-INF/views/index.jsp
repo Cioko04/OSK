@@ -8,11 +8,13 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-    <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src='<c:url value="/resources/dist/img/AdminLTELogo.png"/>' alt="AdminLTELogo"
-             height="60" width="60">
-    </div>
+
+<%--    Patryku ponizej jest animacja ktora trzeba usunac co sie laduje po otworzeniu strony--%>
+<%--    <!-- Preloader -->--%>
+<%--    <div class="preloader flex-column justify-content-center align-items-center">--%>
+<%--        <img class="animation__shake" src='<c:url value="/resources/dist/img/AdminLTELogo.png"/>' alt="AdminLTELogo"--%>
+<%--             height="60" width="60">--%>
+<%--    </div>--%>
 
 
     <!-- Main Sidebar Container -->
@@ -131,6 +133,10 @@
             </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->
+
+
+
+
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">

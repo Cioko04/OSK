@@ -27,4 +27,5 @@ public class Client {
 
     @ManyToMany(mappedBy = "allClients")
     private Set<Instructor> allInstructors = new HashSet<>();
+
 }

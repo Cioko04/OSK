@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
+
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -19,7 +21,7 @@ public class ClientController {
         this.clientService = clientService;
     }
 
-    // getting a view of all the clients with model of those clients
+    // getting all the clients for showing on page
     @GetMapping("/clients")
     public String getClientsList(Model model) {
         List<Client> allClients = this.clientService.getAllClients();
@@ -27,38 +29,39 @@ public class ClientController {
         return "clients/clientsList";
     }
 
-    // getting the view of adding a new client
+    // only get view for add new client
     @GetMapping("/addClient")
     public String getAddClientView() {
-        return "clients/addCient";
+        return "clients/addNewPerson";
     }
 
-    //getting the view of editing a certain client with model of that client
-    @GetMapping("/editClient/{id}")
-    public String getEditClientView(@PathVariable Long id, Model model) {
-        Client foundedClient = this.clientService.getClientById(id);
-        model.addAttribute("client", foundedClient);
-        return "clients/editClient";
-    }
-
-    // confirming of adding a new client on page then redirecting a view to /clients
+    // save client in DB then redirecting a view
     @PostMapping("/addClient")
     public RedirectView addClient (@ModelAttribute Client client) {
         this.clientService.addClient(client);
         return new RedirectView("/clients");
     }
 
-    // confirming of editing a certain client and redirecting a view to  /clients
+    // get client for only edit view
+    @GetMapping("/editClient/{id}")
+    public String getEditClient(@PathVariable("id") Long id, Model model) {
+        Client client = clientService.getClient(id);
+        model.addAttribute("client", client);
+        return "clients/editPerson";
+    }
+
+    // save edit client
+    @PostMapping("/addClient/{id}")
+    public RedirectView postEditClient(@Valid @ModelAttribute Client newClient, @PathVariable("id") Long id) {
+        clientService.editClient(newClient);
+        return new RedirectView("/editClient/{id}");
+    }
+
+    // delete client
     @PostMapping("/editClient/{id}")
-    public RedirectView acceptEditingClient(@ModelAttribute Client newClient) {
-        this.clientService.editClient(newClient);
+    public RedirectView deleteClient(@PathVariable("id") Long id) {
+        clientService.deleteClient(id);
         return new RedirectView("/clients");
     }
 
-    //confirming of removing a certain client on page from OSC and redirecting a view to  /clients
-    @PostMapping("/removeClient/{id}")
-    public RedirectView removeClient(@PathVariable("id") Long id) {
-        this.clientService.deleteClient(id);
-        return new RedirectView("/clients");
-    }
 }
