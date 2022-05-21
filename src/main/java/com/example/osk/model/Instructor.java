@@ -63,8 +63,6 @@ public class Instructor {
     private String catT;
 
 
-    @OneToMany(mappedBy = "instructor")
-    private Set<InstructorCategories> categoriesSet = new HashSet<>();
 
     @ManyToMany
     @JoinTable(name = "instructor_client",
