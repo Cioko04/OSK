@@ -36,5 +36,7 @@ public class InstructorService {
     public void deleteInstructor(Long id) {
         this.instructorRepository.deleteById(id);
     }
-
+    public Long getCountOfInstructors(){
+        return this.instructorRepository.count();
+    }
 }

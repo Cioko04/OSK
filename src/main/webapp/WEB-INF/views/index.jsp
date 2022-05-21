@@ -33,7 +33,7 @@
                         <div class="small-box bg-info">
                             <div class="inner">
                                 <h3>
-                                    <div style="text-align: center;">15</div>
+                                    <div style="text-align: center;">${clientsCount}</div>
                                 </h3>
                                 <p>
                                 <div style="text-align: center;">Studenci</div>
@@ -50,7 +50,7 @@
                         <div class="small-box bg-success">
                             <div class="inner">
                                 <h3>
-                                    <div style="text-align: center;">5</div>
+                                    <div style="text-align: center;">${instructorsCount}</div>
                                 </h3>
 
                                 <p>
@@ -80,12 +80,6 @@
             <b>Version</b> alpha 1.0
         </div>
     </footer>
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
