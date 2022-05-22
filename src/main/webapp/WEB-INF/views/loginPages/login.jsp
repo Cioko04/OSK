@@ -29,12 +29,12 @@
                                 <form class="user" method="post" action='<c:url value="/login"/> '>
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"
-                                               id="exampleInputEmail" name="username" aria-describedby="emailHelp"
+                                               id="username" name="username" aria-describedby="emailHelp"
                                                placeholder="Wprowadź swój login">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user"
-                                               id="exampleInputPassword" name="password" placeholder="Hasło">
+                                               id="password" name="password" placeholder="Hasło">
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
