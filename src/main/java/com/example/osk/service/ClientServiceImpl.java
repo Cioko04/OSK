@@ -27,10 +27,6 @@ public class ClientServiceImpl implements ClientService {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    //    public void addClient(Client client) {
-//        this.clientRepository.save(client);
-//    }
-
     public Client getClientById(Long id) {
         return this.clientRepository.findById(id).orElse(null);
     }
@@ -45,6 +41,9 @@ public class ClientServiceImpl implements ClientService {
 
     public void deleteClient(Long id) {
         this.clientRepository.deleteById(id);
+    }
+    public Long getCountOfClients(){
+        return clientRepository.count();
     }
 
 
