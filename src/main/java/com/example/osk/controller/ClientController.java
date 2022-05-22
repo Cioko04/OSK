@@ -2,6 +2,8 @@ package com.example.osk.controller;
 
 import com.example.osk.model.Client;
 import com.example.osk.service.ClientService;
+import com.example.osk.service.ClientServiceImpl;
+import com.example.osk.web.dto.ClientRegistrationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,12 +16,13 @@ import java.util.List;
 @Controller
 public class ClientController {
 
-    private final ClientService clientService;
+    private final ClientServiceImpl clientService;
 
     @Autowired
-    public ClientController(ClientService clientService) {
+    public ClientController(ClientServiceImpl clientService) {
         this.clientService = clientService;
     }
+
 
     // getting all the clients for showing on page
     @GetMapping("/clients")
@@ -37,8 +40,8 @@ public class ClientController {
 
     // save client in DB then redirecting a view
     @PostMapping("/addClient")
-    public RedirectView addClient (@ModelAttribute Client client) {
-        this.clientService.addClient(client);
+    public RedirectView addClient(@ModelAttribute ClientRegistrationDto clientRegistrationDto) {
+        clientService.save(clientRegistrationDto);
         return new RedirectView("/clients");
     }
 

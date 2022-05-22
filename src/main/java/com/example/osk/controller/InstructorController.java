@@ -1,5 +1,6 @@
 package com.example.osk.controller;
 
+import com.example.osk.model.Client;
 import com.example.osk.model.Instructor;
 import com.example.osk.service.InstructorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -36,7 +38,7 @@ public class InstructorController {
 
     //getting the view of editing a certain instructor with model of that instructor
     @GetMapping("/editInstructor/{id}")
-    public String getEditInstructorView(@PathVariable Long id, Model model) {
+    public String getEditInstructorView(@PathVariable("id") Long id, Model model) {
         Instructor foundedInstructor = this.instructorService.getInstructor(id);
         model.addAttribute("instructor", foundedInstructor);
         return "instructors/editInstructor";
@@ -49,17 +51,27 @@ public class InstructorController {
         return new RedirectView("/instructors");
     }
 
-    // confirming of editing a certain instructor and redirecting a view to /instructors
+  /*  // confirming of editing a certain instructor and redirecting a view to /instructors
     @PostMapping("/editInstructor/{id}")
     public RedirectView acceptEditingInstructor(@ModelAttribute Instructor instructor) {
         this.instructorService.editInstructor(instructor);
         return new RedirectView("/instructors");
     }
-
+*/
     //confirming of removing a certain instructor on page from OSC and redirecting a view to /instructors
-    @PostMapping("/removeInstructor/{id}")
+    @PostMapping("/editInstructor/{id}")
     public RedirectView removeInstructor(@PathVariable("id") Long id) {
         this.instructorService.deleteInstructor(id);
         return new RedirectView("/instructors");
     }
+
+    // save edit client
+    @PostMapping("/addInstructor/{id}")
+    public RedirectView postEditClient(@Valid @ModelAttribute Instructor newInstructor, @PathVariable("id") Long id) {
+        instructorService.editInstructor(newInstructor);
+        return new RedirectView("/instructors");
+    }
+
+
+
 }
