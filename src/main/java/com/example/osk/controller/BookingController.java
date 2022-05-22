@@ -8,7 +8,6 @@ public class BookingController {
 
     @GetMapping("/bookPracticalLesson")
     public String getBookLessonView() {
-        return "booking/bookingLesson";
+        return "booking/categories";
     }
-
 }

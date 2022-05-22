@@ -237,7 +237,7 @@
 
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>AM<sup style="font-size: 20px"> kategoria</sup></h3>
+                                <h3>AM<sup style="font-size: 15px"> kategoria</sup></h3>
                                 <p>14 lat</p>
                             </div>
                             <div class="icon">
@@ -249,7 +249,7 @@
                     <div class="col-lg-2 col-2">
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>A1<sup style="font-size: 20px"> kategoria</sup></h3>
+                                <h3>A1<sup style="font-size: 15px"> kategoria</sup></h3>
 
                                 <p>16 lat</p>
                             </div>
@@ -263,7 +263,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>A2<sup style="font-size: 20px"> kategoria</sup></h3>
+                                <h3>A2<sup style="font-size: 15px"> kategoria</sup></h3>
 
                                 <p>18 lat</p>
                             </div>
@@ -276,7 +276,7 @@
                     <div class="col-lg-2 col-2">
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>A<sup style="font-size: 20px"> kategoria</sup></h3>
+                                <h3>A<sup style="font-size: 15px"> kategoria</sup></h3>
 
                                 <p>20 lat</p>
                             </div>
@@ -289,7 +289,7 @@
                     <div class="col-lg-2 col-2">
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>B1<sup style="font-size: 20px"> kategoria</sup></h3>
+                                <h3>B1<sup style="font-size: 15px"> kategoria</sup></h3>
                                 <p>16 lat</p>
                             </div>
                             <div class="icon">
@@ -301,7 +301,7 @@
                     <div class="col-lg-2 col-2">
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>B<sup style="font-size: 20px"> kategoria</sup></h3>
+                                <h3>B<sup style="font-size: 15px"> kategoria</sup></h3>
 
                                 <p>18 lat</p>
                             </div>
@@ -314,7 +314,7 @@
                     <div class="col-lg-2 col-2">
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>B+E<sup style="font-size: 20px"> kategoria</sup></h3>
+                                <h3>B+E<sup style="font-size: 15px"> kategoria</sup></h3>
 
                                 <p>18 lat</p>
                             </div>
@@ -327,7 +327,7 @@
                     <div class="col-lg-2 col-2">
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>C<sup style="font-size: 20px"> kategoria</sup></h3>
+                                <h3>C<sup style="font-size: 15px"> kategoria</sup></h3>
 
                                 <p>21 lat</p>
                             </div>
@@ -340,7 +340,7 @@
                     <div class="col-lg-2 col-2">
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>C1<sup style="font-size: 20px"> kategoria</sup></h3>
+                                <h3>C1<sup style="font-size: 15px"> kategoria</sup></h3>
 
                                 <p>18 lat</p>
                             </div>
@@ -353,7 +353,7 @@
                     <div class="col-lg-2 col-2">
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>C1+E<sup style="font-size: 20px"> kategoria</sup></h3>
+                                <h3>C1+E<sup style="font-size: 15px"> kategoria</sup></h3>
 
                                 <p>18 lat</p>
                             </div>
@@ -366,7 +366,7 @@
                     <div class="col-lg-2 col-2">
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>C+E<sup style="font-size: 20px"> kategoria</sup></h3>
+                                <h3>C+E<sup style="font-size: 15px"> kategoria</sup></h3>
 
                                 <p>21 lat</p>
                             </div>
@@ -379,7 +379,7 @@
                     <div class="col-lg-2 col-2">
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>D<sup style="font-size: 20px"> kategoria</sup></h3>
+                                <h3>D<sup style="font-size: 15px"> kategoria</sup></h3>
 
                                 <p>24 lat</p>
                             </div>
@@ -392,7 +392,7 @@
                     <div class="col-lg-2 col-2">
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>D1<sup style="font-size: 20px"> kategoria</sup></h3>
+                                <h3>D1<sup style="font-size: 15px"> kategoria</sup></h3>
 
                                 <p>21 lat</p>
                             </div>
@@ -405,7 +405,7 @@
                     <div class="col-lg-2 col-2">
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>D1+E<sup style="font-size: 20px"> kategoria</sup></h3>
+                                <h3>D1+E<sup style="font-size: 15px"> kategoria</sup></h3>
 
                                 <p>21 lat</p>
                             </div>
@@ -418,7 +418,7 @@
                     <div class="col-lg-2 col-2">
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>D+E<sup style="font-size: 20px"> kategoria</sup></h3>
+                                <h3>D+E<sup style="font-size: 15px"> kategoria</sup></h3>
 
                                 <p>24 lat</p>
                             </div>
@@ -431,7 +431,7 @@
                     <div class="col-lg-2 col-2">
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>T<sup style="font-size: 20px"> kategoria</sup></h3>
+                                <h3>T<sup style="font-size: 15px"> kategoria</sup></h3>
 
                                 <p>16 lat</p>
                             </div>
