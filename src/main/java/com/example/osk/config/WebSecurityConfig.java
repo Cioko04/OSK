@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
 @Configuration
@@ -25,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public DaoAuthenticationProvider authenticationProvider(){
+    public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
         auth.setUserDetailsService(clientService);
         auth.setPasswordEncoder(passwordEncoder());
@@ -35,19 +36,37 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
+        auth.inMemoryAuthentication()
+                .withUser("test").password(passwordEncoder()
+                        .encode("test")).roles("USER")
+                .and()
+                .withUser("admin").password(passwordEncoder()
+                        .encode("admin")).roles("ADMIN");
     }
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/clients").hasAnyAuthority("ROLE_USER")
-                .antMatchers("/clients").hasAnyAuthority("ROLE_ADMIN")
-                .anyRequest().permitAll()
+                .antMatchers("/")
+                .hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+                .antMatchers( "/clients", "/instructors","/vehicles")
+                .hasAnyAuthority("ROLE_ADMIN")
+                .and()
+                .csrf().disable()
+                .headers().frameOptions().disable()
                 .and()
                 .formLogin()
+                .loginPage("/login")
+                .usernameParameter("username")
+                .passwordParameter("password")
+                .loginProcessingUrl("/login")
+                .failureForwardUrl("/login?error")
+                .defaultSuccessUrl("/")
                 .and()
                 .logout()
-                .and()
-                .csrf().disable();
+                .invalidateHttpSession(true)
+                .clearAuthentication(true)
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login?logout");
     }
 }

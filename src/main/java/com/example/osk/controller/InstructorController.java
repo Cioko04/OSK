@@ -1,8 +1,8 @@
 package com.example.osk.controller;
 
-import com.example.osk.model.Client;
 import com.example.osk.model.Instructor;
-import com.example.osk.service.InstructorService;
+import com.example.osk.service.InstructorServiceImpl;
+import com.example.osk.web.dto.InstructorRegistrationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +15,10 @@ import java.util.List;
 @Controller
 public class InstructorController {
 
-    private final InstructorService instructorService;
+    private final InstructorServiceImpl instructorService;
 
     @Autowired
-    public InstructorController(InstructorService instructorService){
+    public InstructorController(InstructorServiceImpl instructorService){
         this.instructorService = instructorService;
     }
 
@@ -46,8 +46,8 @@ public class InstructorController {
 
     // confirming of adding a new instructor on page then redirecting a view to /instructors
     @PostMapping("/addInstructor")
-    public RedirectView addInstructor (@ModelAttribute Instructor instructor) {
-        this.instructorService.addInstructor(instructor);
+    public RedirectView addInstructor (@ModelAttribute InstructorRegistrationDto instructorRegistrationDto) {
+        instructorService.save(instructorRegistrationDto);
         return new RedirectView("/instructors");
     }
 

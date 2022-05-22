@@ -4,7 +4,6 @@ import com.example.osk.model.Client;
 import com.example.osk.model.Role;
 import com.example.osk.repository.ClientRepository;
 import com.example.osk.web.dto.ClientRegistrationDto;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,16 +19,12 @@ import java.util.stream.Collectors;
 public class ClientServiceImpl implements ClientService {
 
     private final ClientRepository clientRepository;
-    public BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public ClientServiceImpl(ClientRepository clientRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.clientRepository = clientRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
-
-    //    public void addClient(Client client) {
-//        this.clientRepository.save(client);
-//    }
 
     public Client getClientById(Long id) {
         return this.clientRepository.findById(id).orElse(null);
@@ -45,6 +40,9 @@ public class ClientServiceImpl implements ClientService {
 
     public void deleteClient(Long id) {
         this.clientRepository.deleteById(id);
+    }
+    public Long getCountOfClients(){
+        return clientRepository.count();
     }
 
 
