@@ -26,4 +26,6 @@ public class MainController {
         model.addAttribute("instructorsCount", instructorsCount);
         return "index";
     }
+
+
 }
