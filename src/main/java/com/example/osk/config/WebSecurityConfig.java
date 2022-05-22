@@ -36,13 +36,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
+        auth.inMemoryAuthentication()
+                .withUser("test").password(passwordEncoder()
+                        .encode("test")).roles("USER")
+                .and()
+                .withUser("admin").password(passwordEncoder()
+                        .encode("admin")).roles("ADMIN");
     }
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/")
-                .hasAnyAuthority("ROLE_USER")
+                .hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
                 .antMatchers( "/clients", "/instructors","/vehicles")
                 .hasAnyAuthority("ROLE_ADMIN")
                 .and()

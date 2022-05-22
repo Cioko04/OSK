@@ -36,21 +36,8 @@
                                         <input type="password" class="form-control form-control-user"
                                                id="password" name="password" placeholder="Hasło">
                                     </div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox small">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck">
-                                            <label class="custom-control-label" for="customCheck">Zapamiętaj
-                                                mnie</label>
-                                        </div>
-                                    </div>
-                                    <div></div>
                                     <input type="submit" value="Login" class="btn btn-primary btn-user btn-block">
-                                    <hr>
-
                                 </form>
-                                <div class="text-center">
-                                    <a class="small" href="#">Utwórz konto!</a>
-                                </div>
                             </div>
                         </div>
                         <div class="col-lg-3"></div>

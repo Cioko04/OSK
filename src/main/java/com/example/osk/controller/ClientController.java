@@ -1,13 +1,15 @@
 package com.example.osk.controller;
 
 import com.example.osk.model.Client;
-import com.example.osk.service.ClientService;
 import com.example.osk.service.ClientServiceImpl;
 import com.example.osk.web.dto.ClientRegistrationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
