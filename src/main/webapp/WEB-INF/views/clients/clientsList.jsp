@@ -5,7 +5,7 @@
 
 <%@include file="../dynamic/link.jspf" %>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<bo dy class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
     <%@include file="../dynamic/navigationMain.jspf"%>
@@ -145,4 +145,4 @@
 
 <%@include file="../dynamic/javaScript.jspf" %>
 </body>
-</html>
+

@@ -50,7 +50,17 @@
                 <li class="nav-item">
                     <a href='<c:url value="/clients"/>' class="nav-link">
                         <i class="nav-icon far fa-circle text-warning"></i>
-                        <p>Kursanci</p>
+                        <p>
+                            Kursanci
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href='<c:url value="/bookPracticalLesson"/>' class="nav-link">
+                        <i class="nav-icon far fa-circle text-danger"></i>
+                            <p>
+                                Watsztaty
+                            </p>
                     </a>
                 </li>
             </ul>
