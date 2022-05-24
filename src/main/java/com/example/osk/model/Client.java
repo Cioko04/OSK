@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.List;
@@ -37,6 +36,9 @@ public class Client {
 
     @ManyToMany(mappedBy = "allClients")
     private Set<Instructor> allInstructors = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH, mappedBy = "client")
+    private Set<TimeSlot> allTimeSlots = new HashSet<>();
 
     public Client(String name, String surname, Integer age, String password, List<Role> roles, List<Instructor> allInstructors) {
         this.name = name;
