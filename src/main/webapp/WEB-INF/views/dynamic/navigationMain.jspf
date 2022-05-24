@@ -13,7 +13,8 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
+        <!-- Sidebar Menu -->
+        <sec:authorize access="isAuthenticated()">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <img src='<c:url value="/resources/dist/img/user2-160x160.jpg"/>' class="img-circle elevation-2"
@@ -21,15 +22,11 @@
             </div>
             <div class="info">
                 <a href='<c:url value="/"/>' class="d-block">
-                    <sec:authorize access="isAuthenticated()">
                         <sec:authentication property="name"/>
-                    </sec:authorize>
                 </a>
             </div>
         </div>
-
-
-        <!-- Sidebar Menu -->
+        </sec:authorize>
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
@@ -44,10 +41,8 @@
                         </p>
                     </a>
                 </li>
+                <sec:authorize access="hasAuthority('ROLE_ADMIN')">
                 <li class="nav-item">
-
-                    
-
                     <a href='<c:url value="/vehicles"/>' class="nav-link">
                         <i class="nav-icon far fa-circle text-info"></i>
                         <p>
@@ -70,6 +65,7 @@
                         <p>Kursanci</p>
                     </a>
                 </li>
+                </sec:authorize>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

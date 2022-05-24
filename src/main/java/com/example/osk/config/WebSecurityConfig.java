@@ -24,6 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private InstructorService instructorService;
 
+
     @Bean
     protected BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -36,6 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.setPasswordEncoder(passwordEncoder());
         return auth;
     }
+
     @Bean
     public DaoAuthenticationProvider authenticationInstructorProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
@@ -43,6 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.setPasswordEncoder(passwordEncoder());
         return auth;
     }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationClientProvider());
@@ -59,9 +62,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/")
-                .hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
-                .antMatchers("/clients", "/instructors", "/vehicles", "/bookPracticalLesson")
+                .antMatchers("/client/*")
+                .hasAnyAuthority("ROLE_USER")
+                .antMatchers("/admin**", "/clients", "/instructors", "/vehicles")
                 .hasAnyAuthority("ROLE_ADMIN")
                 .and()
                 .csrf().disable()
