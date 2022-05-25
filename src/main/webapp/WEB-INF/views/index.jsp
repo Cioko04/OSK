@@ -18,16 +18,21 @@
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
-<%--            <button type="button" class="btn btn-block btn-dark">Wyloguj</button>--%>
-            <li sec:authorize ="isAuthenticated()">
+            <sec:authorize access="isAuthenticated()">
+            <li>
                 <a href='<c:url value="/logout"/>' class="btn btn-block btn-dark">Wyloguj</a>
             </li>
+            </sec:authorize>
+            <sec:authorize access="isAnonymous()">
+                <li>
+                    <a href='<c:url value="/login"/>' class="btn btn-block btn-dark">Zaloguj</a>
+                </li>
+            </sec:authorize>
 
         </ul>
     </nav>
 
     <%@include file="dynamic/navigationMain.jspf"%>
-
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -48,40 +53,28 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-lg-6 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>
-                                    <div style="text-align: center;">${clientsCount}</div>
-                                </h3>
-                                <p>
-                                <div style="text-align: center;">Studenci</div>
-                                </p>
+                        <div class="info-box bg-info">
+                            <span class="info-box-icon"><i class="fas fa-user"></i></span>
+                            <div class="info-box-content" style="text-align:center">
+                                <span class="info-box-text">
+                                    <h3>${instructorsCount}</h3>
+                                </span>
+                                <span class="info-box-number">Instruktorzy</span>
                             </div>
-                            <div class="icon">
-                                <i class="ion ion-person"></i>
-                            </div>
+                            <!-- /.info-box-content -->
                         </div>
                     </div>
-                    <!-- ./col -->
                     <div class="col-lg-6 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-success">
-                            <div class="inner">
-                                <h3>
-                                    <div style="text-align: center;">${instructorsCount}</div>
-                                </h3>
-
-                                <p>
-                                <div style="text-align: center;">Instruktorzy</div>
-                                </p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-person"></i>
+                        <div class="info-box bg-info">
+                            <span class="info-box-icon"><i class="fas fa-user"></i></span>
+                            <div class="info-box-content" style="text-align:center">
+                                <span class="info-box-text">
+                                    <h3>${clientsCount}</h3>
+                                </span>
+                                <span class="info-box-number">Kursanci</span>
                             </div>
                         </div>
                     </div>
-                    <!-- ./col -->
                 </div>
             </div><!-- /.container-fluid -->
         </section>

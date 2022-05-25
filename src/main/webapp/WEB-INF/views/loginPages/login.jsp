@@ -36,8 +36,16 @@
                                         <input type="password" class="form-control form-control-user"
                                                id="password" name="password" placeholder="Hasło">
                                     </div>
-                                    <input type="submit" value="Login" class="btn btn-primary btn-user btn-block">
+                                    <input type="submit" value="Zaloguj" class="btn btn-success btn-user btn-block"/>
                                 </form>
+                                <div>
+                                    <a href='<c:url value="/"/>' class="btn btn-info btn-block mb-3">
+                                        <span class="icon text-white">
+                                            <i class="fa fa-caret-square-left"></i>
+                                        </span>
+                                        <span class="text">Strona główna</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-3"></div>
