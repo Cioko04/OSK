@@ -5,59 +5,87 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>OSK Projekt | Validation Form</title>
-
-    <%@include file="../dynamic/link.jspf" %>
+    <link rel="stylesheet" href='<c:url value="/resources/plugins/fontawesome-free/css/all.min.css"/>'>
+    <link rel="stylesheet" href='<c:url value="/resources/dist/css/login-page-style.css"/>'>
+    <link rel="stylesheet" href='<c:url value="/resources/dist/css/semipolar.css"/>'>
 </head>
-<body class="hold-transition sidebar-mini">
+<body>
 <div class="container">
-
     <!-- Outer Row -->
     <div class="row justify-content-center">
-
         <div class="col-xl-10 col-lg-12 col-md-9">
-
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
                     <div class="row">
-                        <div class="col-lg-3"></div>
+                        <div class="col-lg-6 d-none d-lg-block p-5">
+                            <div class="semipolar-spinner" :style="spinnerStyle">
+                                <div class="ring"></div>
+                                <div class="ring"></div>
+                                <div class="ring"></div>
+                                <div class="ring"></div>
+                                <div class="ring"></div>
+                            </div>
+                        </div>
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Witaj !</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">OSK Zapraszamy!</h1>
                                 </div>
                                 <form class="user" method="post" action='<c:url value="/login"/> '>
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user"
-                                               id="username" name="username" aria-describedby="emailHelp"
-                                               placeholder="Wprowadź swój login">
+                                        <input
+                                                type="text"
+                                                class="form-control form-control-user"
+                                                id="username"
+                                                name="username"
+                                                aria-describedby="emailHelp"
+                                                placeholder="Wprowadź swój login"
+                                        />
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-user"
-                                               id="password" name="password" placeholder="Hasło">
+                                        <input
+                                                type="password"
+                                                class="form-control form-control-user"
+                                                id="password"
+                                                name="password"
+                                                placeholder="Hasło"
+                                        />
                                     </div>
-                                    <input type="submit" value="Zaloguj" class="btn btn-success btn-user btn-block"/>
-                                </form>
-                                <div>
-                                    <a href='<c:url value="/"/>' class="btn btn-info btn-block mb-3">
-                                        <span class="icon text-white">
-                                            <i class="fa fa-caret-square-left"></i>
-                                        </span>
+                                    <input
+                                            type="submit"
+                                            value="Zaloguj"
+                                            class="btn btn-success btn-user btn-block"
+                                    />
+                                    <a
+                                            href='<c:url value="/"/>'
+                                            class="btn btn-primary btn-user btn-block"
+                                    >
+                        <span class="icon text-white">
+                          <i class="fa fa-caret-square-left"></i>
+                        </span>
                                         <span class="text">Strona główna</span>
                                     </a>
-                                </div>
+
+                                    <hr />
+                                </form>
                             </div>
                         </div>
-                        <div class="col-lg-3"></div>
                     </div>
                 </div>
             </div>
-
+            <footer class="main-footer">
+                <strong>Projekt OSK</strong>
+                All rights reserved.
+                <div class="float-right d-none d-sm-inline-block">
+                    <b>Version</b> alpha 1.0
+                </div>
+            </footer>
         </div>
-
     </div>
-
-
 </div>
 </body>
+
+
+
 

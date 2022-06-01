@@ -20,9 +20,9 @@ public class MainController {
 
     @GetMapping("/")
     public String getMainPage(Model model) {
-//        Long clientsCount = clientService.getCountOfClients();
+        Long clientsCount = clientService.getCountOfClients();
         Long instructorsCount = instructorService.getCountOfInstructors();
-//        model.addAttribute("clientsCount", clientsCount);
+        model.addAttribute("clientsCount", clientsCount);
         model.addAttribute("instructorsCount", instructorsCount);
         return "index";
     }

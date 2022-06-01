@@ -8,29 +8,7 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-        <!-- Left navbar links -->
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-            </li>
-        </ul>
-
-        <!-- Right navbar links -->
-        <ul class="navbar-nav ml-auto">
-            <sec:authorize access="isAuthenticated()">
-            <li>
-                <a href='<c:url value="/logout"/>' class="btn btn-block btn-dark">Wyloguj</a>
-            </li>
-            </sec:authorize>
-            <sec:authorize access="isAnonymous()">
-                <li>
-                    <a href='<c:url value="/login"/>' class="btn btn-block btn-dark">Zaloguj</a>
-                </li>
-            </sec:authorize>
-
-        </ul>
-    </nav>
+    <%@include file="dynamic/topNavigation.jspf"%>
 
     <%@include file="dynamic/navigationMain.jspf"%>
 
@@ -84,14 +62,8 @@
 
 
     </div>
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <strong>Projekt OSK</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> alpha 1.0
-        </div>
-    </footer>
+    <!-- footer -->
+    <%@include file="dynamic/footer.jspf"%>
 </div>
 <!-- ./wrapper -->
 

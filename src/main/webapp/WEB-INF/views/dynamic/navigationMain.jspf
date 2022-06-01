@@ -67,6 +67,8 @@
                         </p>
                     </a>
                 </li>
+                </sec:authorize>
+                <sec:authorize access="hasAnyAuthority('ROLE_USER', 'ROLE_ADMIN')">
                 <li class="nav-item">
                     <a href='<c:url value="/bookPracticalLesson"/>' class="nav-link">
                         <i class="nav-icon far fa-circle text-danger"></i>
