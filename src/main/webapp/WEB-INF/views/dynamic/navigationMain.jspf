@@ -44,7 +44,7 @@
                 <sec:authorize access="hasAuthority('ROLE_ADMIN')">
                 <li class="nav-item">
                     <a href='<c:url value="/vehicles"/>' class="nav-link">
-                        <i class="nav-icon far fa-circle text-info"></i>
+                        <i class="nav-icon fas fa-car"></i>
                         <p>
                             Pojazdy
                         </p>
@@ -53,7 +53,7 @@
                 <li class="nav-item">
                     <a href='<c:url value="/instructors"/>' class="nav-link">
 
-                        <i class="nav-icon far fa-circle text-info"></i>
+                        <i class="nav-icon fas fa-user"></i>
                         <p>
                             Trenerzy
                         </p>
@@ -61,7 +61,7 @@
                 </li>
                 <li class="nav-item">
                     <a href='<c:url value="/clients"/>' class="nav-link">
-                        <i class="nav-icon far fa-circle text-warning"></i>
+                        <i class="nav-icon fas fa-user-graduate"></i>
                         <p>
                             Kursanci
                         </p>
@@ -71,7 +71,7 @@
                 <sec:authorize access="hasAnyAuthority('ROLE_USER', 'ROLE_ADMIN')">
                 <li class="nav-item">
                     <a href='<c:url value="/bookPracticalLesson"/>' class="nav-link">
-                        <i class="nav-icon far fa-circle text-danger"></i>
+                        <i class="nav-icon fas fa-book-open"></i>
                             <p>
                                 Watsztaty
                             </p>

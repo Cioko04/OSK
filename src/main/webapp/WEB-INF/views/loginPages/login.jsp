@@ -9,12 +9,12 @@
     <link rel="stylesheet" href='<c:url value="/resources/dist/css/login-page-style.css"/>'>
     <link rel="stylesheet" href='<c:url value="/resources/dist/css/semipolar.css"/>'>
 </head>
-<body>
+<body class="bg-gradient-primary">
 <div class="container">
     <!-- Outer Row -->
     <div class="row justify-content-center">
         <div class="col-xl-10 col-lg-12 col-md-9">
-            <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card o-hidden border-0 shadow-lg my-5 bg-gradient-light">
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
                     <div class="row">
@@ -22,15 +22,13 @@
                             <div class="semipolar-spinner" :style="spinnerStyle">
                                 <div class="ring"></div>
                                 <div class="ring"></div>
-                                <div class="ring"></div>
-                                <div class="ring"></div>
-                                <div class="ring"></div>
+                                <div class="ring">L</div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">OSK Zapraszamy!</h1>
+                                    <h1 class="h4 text-primary mb-4">OSK Zapraszamy!</h1>
                                 </div>
                                 <form class="user" method="post" action='<c:url value="/login"/> '>
                                     <div class="form-group">
@@ -74,7 +72,7 @@
                     </div>
                 </div>
             </div>
-            <footer class="main-footer">
+            <footer class="main-footer text-light">
                 <strong>Projekt OSK</strong>
                 All rights reserved.
                 <div class="float-right d-none d-sm-inline-block">

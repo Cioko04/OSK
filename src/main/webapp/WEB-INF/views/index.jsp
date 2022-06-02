@@ -31,7 +31,7 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-lg-6 col-6">
-                        <div class="info-box bg-info">
+                        <div class="info-box bg-primary">
                             <span class="info-box-icon"><i class="fas fa-user"></i></span>
                             <div class="info-box-content" style="text-align:center">
                                 <span class="info-box-text">
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-6">
-                        <div class="info-box bg-info">
+                        <div class="info-box bg-primary">
                             <span class="info-box-icon"><i class="fas fa-user"></i></span>
                             <div class="info-box-content" style="text-align:center">
                                 <span class="info-box-text">
