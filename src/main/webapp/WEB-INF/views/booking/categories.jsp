@@ -8,7 +8,6 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-    <%@include file="../dynamic/topNavigation.jspf"%>
     <!-- /.navbar -->
 <%--    Sidebar--%>
     <%@include file="../dynamic/navigationMain.jspf"%>

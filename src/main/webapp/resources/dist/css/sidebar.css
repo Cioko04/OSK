@@ -1,0 +1,27 @@
+.primary-light-sidebar, .top-nav-bar{
+    background-color: #4e73df;
+}
+.a-sidebar, .a-link-sidebar{
+    color: #f8f9fa;
+}
+.a-link-sidebar{
+    display: block;
+    padding: 0.5rem 1rem;
+}
+.a-sidebar:hover{
+    color: #00254d;
+}
+.btn-adj {
+    color: #4e73df;
+    background-color: #f8f9fa;
+    border-color: #00254d;
+    box-shadow: none;
+}
+.btn-adj:hover{
+    color: #00254d;
+    border-color: #f8f9fa;
+}
+.section-border{
+    border-bottom: 1px solid #00254d;
+}
+
