@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-lg-6 col-6">
                         <div class="info-box bg-primary">
-                            <span class="info-box-icon"><i class="fas fa-user"></i></span>
+                            <span class="info-box-icon"><i class="fas fa-user-graduate"></i></span>
                             <div class="info-box-content" style="text-align:center">
                                 <span class="info-box-text">
                                     <h3>${clientsCount}</h3>
