@@ -12,6 +12,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.firewall.DefaultHttpFirewall;
+import org.springframework.security.web.firewall.HttpFirewall;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
@@ -57,14 +59,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("admin").password(passwordEncoder()
                         .encode("admin")).roles("ADMIN");
     }
+    @Bean
+    public HttpFirewall getHttpFirewall() {
+        return new DefaultHttpFirewall();
+    }
 
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/client/*")
-                .hasAnyAuthority("ROLE_USER")
-                .antMatchers("/admin**", "/clients", "/instructors", "/vehicles")
+                .antMatchers("/bookPracticalLesson")
+                .hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+                .antMatchers("/clients", "/instructors", "/vehicles")
                 .hasAnyAuthority("ROLE_ADMIN")
                 .and()
                 .csrf().disable()
@@ -75,14 +81,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .loginProcessingUrl("/login")
-                .failureForwardUrl("/login?error")
+                .failureUrl("/login?error=true")
                 .defaultSuccessUrl("/")
                 .and()
                 .logout()
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login?logout");
+                .logoutSuccessUrl("/login?logout=true");
     }
 
 }
