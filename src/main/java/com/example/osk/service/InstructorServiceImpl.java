@@ -32,6 +32,10 @@ public class InstructorServiceImpl implements InstructorService{
     public Instructor getInstructor(Long id) {
         return this.instructorRepository.findById(id).orElse(null);
     }
+    public Instructor getInstructorByName(String name) {
+
+        return this.instructorRepository.findByName(name);
+    }
 
     public List<Instructor> getAllInstructors() {
         return this.instructorRepository.findAll();

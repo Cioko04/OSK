@@ -29,6 +29,10 @@ public class ClientServiceImpl implements ClientService {
     public Client getClientById(Long id) {
         return this.clientRepository.findById(id).orElse(null);
     }
+    public Client getClientByName(String name) {
+
+        return this.clientRepository.findByName(name);
+    }
 
     public List<Client> getAllClients() {
         return this.clientRepository.findAll();
@@ -52,6 +56,7 @@ public class ClientServiceImpl implements ClientService {
                 registrationDto.getSurname(),
                 registrationDto.getAge(),
                 bCryptPasswordEncoder.encode(registrationDto.getPassword()),
+                registrationDto.getEmail(),
                 List.of(new Role("ROLE_USER")),
                 List.of());
         return clientRepository.save(client);
@@ -59,12 +64,12 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Client client = clientRepository.findByName(username);
+        Client client = clientRepository.findByEmail(username);
         if (client == null){
             throw new UsernameNotFoundException("Ivalid username or password.");
         }
         return new org.springframework.security.core.userdetails.User(
-                client.getName(),
+                client.getEmail(),
                 client.getPassword(),
                 mapRolesToAuthorities(client.getRoles()));
     }

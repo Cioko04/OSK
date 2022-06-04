@@ -9,7 +9,7 @@
     <link rel="stylesheet" href='<c:url value="/resources/dist/css/login-page-style.css"/>'>
     <link rel="stylesheet" href='<c:url value="/resources/dist/css/semipolar.css"/>'>
 </head>
-<body class="bg-gradient-primary">
+<body class="bg-color">
 <div class="container">
 <!-- Outer Row -->
 <div class="row justify-content-center">

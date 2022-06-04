@@ -14,7 +14,8 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "clients")
+@Entity
+@Table(name = "clients", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Client {
 
     @Id
@@ -28,6 +29,8 @@ public class Client {
     private Integer age;
     @Column(length = 250)
     private String password;
+    @Column(length = 50)
+    private String email;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "clients_roles",
@@ -38,11 +41,12 @@ public class Client {
     @ManyToMany(mappedBy = "allClients")
     private Set<Instructor> allInstructors = new HashSet<>();
 
-    public Client(String name, String surname, Integer age, String password, List<Role> roles, List<Instructor> allInstructors) {
+    public Client(String name, String surname, Integer age, String password, String email, List<Role> roles, List<Instructor> allInstructors) {
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.password = password;
+        this.email = email;
         this.roles = new HashSet<>(roles);
         this.allInstructors = new HashSet<>(allInstructors);
     }

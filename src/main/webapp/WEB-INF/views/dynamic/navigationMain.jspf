@@ -43,7 +43,7 @@
                      alt="User Image">
             </div>
             <div class="info">
-                <a href='<c:url value="/"/>' class="a-sidebar">
+                <a href='<c:url value="/editProfile"/>' class="a-sidebar">
                         <sec:authentication property="name"/>
                 </a>
             </div>

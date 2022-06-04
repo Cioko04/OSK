@@ -57,3 +57,6 @@
         transform: rotate(360deg) scale(0.8);
     }
 }
+.bg-color{
+ background-color: rgba(0, 12, 26, 0.84);
+}

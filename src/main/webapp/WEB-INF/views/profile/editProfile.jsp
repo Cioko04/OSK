@@ -35,7 +35,7 @@
                                     type="text"
                                     id="username"
                                     name="username"
-                                    placeholder="Alexander"
+                                    placeholder="${person.name}"
                             />
                           </p>
                           <p>
@@ -46,7 +46,7 @@
                                     type="text"
                                     id="surname"
                                     name="surname"
-                                    placeholder="Pierce"
+                                    placeholder="${person.surname}"
                             />
                           </p>
                           <p>
@@ -55,8 +55,8 @@
                             <p>
                             <input
                                     type="password"
-                                    id="age"
-                                    name="age"
+                                    id="password"
+                                    name="password"
                             />
                           </p>
                           <p>
@@ -68,7 +68,7 @@
                                     id="age"
                                     name="age"
                                     aria-describedby="emailHelp"
-                                    placeholder="24"
+                                    placeholder="${person.age}"
                             />
                           </p>
                           <p>
