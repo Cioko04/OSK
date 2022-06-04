@@ -33,7 +33,14 @@ public class TimeSlot {
     @JoinColumn(name = "instructor_id")
     private Instructor instructor;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "vehicle_id")
+    private Vehicle vehicle;
 
+    public TimeSlot(String timeslot, boolean isBusy) {
+        this.timeslot = timeslot;
+        this.isBusy = isBusy;
+    }
 
 //    @OneToOne(cascade = CascadeType.ALL)
 //    @JoinTable(name = "client_id")

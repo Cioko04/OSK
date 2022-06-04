@@ -54,8 +54,8 @@ public class ClientServiceImpl implements ClientService {
                 registrationDto.getSurname(),
                 registrationDto.getAge(),
                 bCryptPasswordEncoder.encode(registrationDto.getPassword()),
-                List.of(new Role("ROLE_USER")),
-                List.of());
+                List.of(new Role("ROLE_USER"))
+                );
         return clientRepository.save(client);
     }
 

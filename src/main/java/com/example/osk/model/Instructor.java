@@ -62,11 +62,11 @@ public class Instructor {
     private String catT;
 
 
-    @ManyToMany
-    @JoinTable(name = "instructor_client",
-            joinColumns = @JoinColumn(name = "instructor_id"),
-            inverseJoinColumns = @JoinColumn(name = "client_id"))
-    private Set<Client> allClients = new HashSet<>();
+//    @ManyToMany
+//    @JoinTable(name = "instructor_client",
+//            joinColumns = @JoinColumn(name = "instructor_id"),
+//            inverseJoinColumns = @JoinColumn(name = "client_id"))
+//    private Set<Client> allClients = new HashSet<>();
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH, mappedBy = "instructor")
     private Set<TimeSlot> allTimeSlots = new HashSet<>();

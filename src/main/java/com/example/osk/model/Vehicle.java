@@ -29,4 +29,7 @@ public class Vehicle {
     private String colour;
     @Column(length = 25)
     private String department;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH, mappedBy = "timeslot")
+    private Set<TimeSlot> allTimeSlots = new HashSet<>();
 }

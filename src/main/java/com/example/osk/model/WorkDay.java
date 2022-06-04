@@ -4,9 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import javax.persistence.*;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -18,20 +21,71 @@ public class WorkDay {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    // main field below
     private LocalDate certainDay;
 
-    private final String timeslot07_08 = "07:00-08:00";
-    private final String timeslot08_09 = "08:00-09:00";
-    private final String timeslot09_10 = "09:00-10:00";
-    private final String timeslot10_11 = "10:00-11:00";
-    private final String timeslot11_12 = "11:00-12:00";
-    private final String timeslot12_13 = "12:00-13:00";
-    private final String timeslot13_14 = "13:00-14:00";
-    private final String timeslot16_17 = "14:00-15:00";
-    private final String timeslot14_15 = "15:00-16:00";
-    private final String timeslot15_16 = "16:00-17:00";
+    private boolean the8amAvailable;
+    private boolean the9amAvailable;
+    private boolean the10amAvailable;
+    private boolean the11amAvailable;
+    private boolean the13amAvailable;
+    private boolean the14amAvailable;
+    private boolean the15amAvailable;
+    private boolean the16amAvailable;
+
+    public WorkDay(LocalDate date, boolean slotAvailability) {
+        this.certainDay = date;
+        this.the8amAvailable = slotAvailability;
+        this.the9amAvailable = slotAvailability;
+        this.the10amAvailable = slotAvailability;
+        this.the11amAvailable = slotAvailability;
+        this.the13amAvailable = slotAvailability;
+        this.the14amAvailable = slotAvailability;
+        this.the15amAvailable = slotAvailability;
+        this.the16amAvailable = slotAvailability;
+    }
+
+    public boolean check8amAvailability() {
+        return this.the8amAvailable;
+    }
+
+    public boolean check9amAvailability() {
+        return this.the9amAvailable;
+    }
+
+    public boolean check10amAvailability() {
+        return this.the10amAvailable;
+    }
+
+    public boolean check11amAvailability() {
+        return this.the11amAvailable;
+    }
+
+    public boolean check13amAvailability() {
+        return this.the13amAvailable;
+    }
+
+    public boolean check14amAvailability() {
+        return this.the14amAvailable;
+    }
+
+    public boolean check15amAvailability() {
+        return this.the15amAvailable;
+    }
+
+    public boolean check16amAvailability() {
+        return this.the16amAvailable;
+    }
+
+    public List<Boolean> getAllTimeSlots() {
+        return List.of(this.the8amAvailable,
+                this.the9amAvailable,
+                this.the10amAvailable,
+                this.the11amAvailable,
+                this.the13amAvailable,
+                this.the14amAvailable,
+                this.the15amAvailable,
+                this.the16amAvailable);
+    }
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH, mappedBy = "workDay")
     private Set<TimeSlot> allTimeSlots = new HashSet<>();

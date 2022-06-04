@@ -34,18 +34,18 @@ public class Client {
     inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Set<Role> roles = new HashSet<>();
 
-    @ManyToMany(mappedBy = "allClients")
-    private Set<Instructor> allInstructors = new HashSet<>();
+//    @ManyToMany(mappedBy = "allClients")
+//    private Set<Instructor> allInstructors = new HashSet<>();
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH, mappedBy = "client")
     private Set<TimeSlot> allTimeSlots = new HashSet<>();
 
-    public Client(String name, String surname, Integer age, String password, List<Role> roles, List<Instructor> allInstructors) {
+    public Client(String name, String surname, Integer age, String password, List<Role> roles) {
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.password = password;
         this.roles = new HashSet<>(roles);
-        this.allInstructors = new HashSet<>(allInstructors);
+//        this.allInstructors = new HashSet<>(allInstructors);
     }
 }
