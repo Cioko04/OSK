@@ -26,8 +26,10 @@ public class BookingController {
 
     @GetMapping("/timeslots")
     public String getBookLessonViewWithNext7WorkDays(Model model) {
+        int currentPage = 1;
         List<WorkDay> sevenWorkDays = this.workDayService.getNextSevenWorkDays();
         model.addAttribute("sevenWorkDays", sevenWorkDays);
+        model.addAttribute("currentPage", currentPage);
         return "booking/hoursTable";
     }
 
