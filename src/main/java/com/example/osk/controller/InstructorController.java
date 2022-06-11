@@ -11,6 +11,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class InstructorController {
@@ -27,6 +28,16 @@ public class InstructorController {
     public String getInstructorsList(Model model) {
         List<Instructor> allInstructors = this.instructorService.getAllInstructors();
         model.addAttribute("instructor", allInstructors);
+        return "instructors/instructorsList";
+    }
+
+    @GetMapping("/choosingInstructor/{category}")
+    public String getCertainInstructorsList(@PathVariable("category") String category, Model model) {
+        List<Instructor> allCertainCategoryInstructors = this.instructorService.getAllInstructors()
+                        .stream()
+                        .filter(instructor -> instructor.categoryChecker(category))
+                        .collect(Collectors.toList());
+        model.addAttribute("instructor", allCertainCategoryInstructors);
         return "instructors/instructorsList";
     }
 

@@ -1,21 +1,15 @@
 package com.example.osk.manager;
 
+import java.util.Objects;
+
 public class LastUsedIdKeeper {
 
     private static Long lastFetched7daysLastDayId;
 
-    public static void setLastFetched7daysLastDayId(Long newID) {
-        if (lastFetched7daysLastDayId != newID) {
+    public static void setLastUsedID(Long newID) {
+        if (!Objects.equals(lastFetched7daysLastDayId, newID)) {
             lastFetched7daysLastDayId = newID;
         }
-    }
-
-    public static void incrementIdBySeven() {
-        lastFetched7daysLastDayId +=7;
-    }
-
-    public static void decrementIdBySeven() {
-        lastFetched7daysLastDayId -=7;
     }
 
     public static Long getLastUsedID() {

@@ -1,3 +1,4 @@
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
@@ -8,8 +9,12 @@
 
 <%@include file="../dynamic/link.jspf" %>
 <%@include file="../dynamic/navigationMain.jspf" %>
-</head>
+<head>
 <style>
+    span.timeSlot {
+        font-size: x-small;
+    }
+
     table, th, td {
         border: 1px solid black;
     }
@@ -32,9 +37,9 @@
 <div class="wrapper">
 
     <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__wobble" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-    </div>
+<%--    <div class="preloader flex-column justify-content-center align-items-center">--%>
+<%--        <img class="animation__wobble" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">--%>
+<%--    </div>--%>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand navbar-dark">
@@ -170,206 +175,215 @@
             </li>
         </ul>
     </nav>
+
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
 
     <!-- Content Wrapper. Contains page content -->
-
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-9">
-                    <table class="table table-sm table-bordered text-center">
-                        <thead>
-                        <tr style="width: 14.28%">
-                            <td>${sevenWorkDays.get(0).certainDay.dayOfWeek}</td>
-                        </tr>
-                        <tr style="width: 14.28%">
-                            <td>${sevenWorkDays.get(1).certainDay.dayOfWeek}</td>
-                        </tr>
-                        <tr style="width: 14.28%">
-                            <td>${sevenWorkDays.get(2).certainDay.dayOfWeek}</td>
-                        </tr>
-                        <tr style="width: 14.28%">
-                            <td>${sevenWorkDays.get(3).certainDay.dayOfWeek}</td>
-                        </tr>
-                        <tr style="width: 14.28%">
-                            <td>${sevenWorkDays.get(4).certainDay.dayOfWeek}</td>
-                        </tr>
-                        <tr style="width: 14.28%">
-                            <td>${sevenWorkDays.get(5).certainDay.dayOfWeek}</td>
-                        </tr>
-                        <tr style="width: 14.28%">
-                            <td>${sevenWorkDays.get(6).certainDay.dayOfWeek}</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                    </table>
-                    <table class="table table-sm table-bordered text-center">
-                        <c:forEach items="${sevenWorkDays}" var="day">
-                            <tr>
-                                <c:choose>
-                                    <c:when test="${day.check8amAvailability() == true}">
-
-                                        <td>
-                                            <a href="#" class="btn btn-info active" role="button"
-                                               data-bs-toggle="button" aria-pressed="true">08:00
-                                                - 09:00</a>
-                                        </td>
-
-                                    </c:when>
-                                    <c:otherwise>
-
-                                        <td class="text-info">
-                                            <a href="#" class="btn btn-secondary disabled" tabindex="-1"
-                                               role="button" data-bs-toggle="button">08:00 - 09:00</a>
-                                        </td>
-
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${day.check9amAvailability() == true}">
-
-                                        <td>
-                                            <a href="#" class="btn btn-info active" role="button"
-                                               data-bs-toggle="button" aria-pressed="true">09:00
-                                                - 10:00</a>
-                                        </td>
-
-                                    </c:when>
-                                    <c:otherwise>
-
-                                        <td class="text-info">
-                                            <a href="#" class="btn btn-secondary disabled" tabindex="-1"
-                                               role="button" data-bs-toggle="button">09:00 - 10:00</a>
-                                        </td>
-
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${day.check10amAvailability() == true}">
-
-                                        <td>
-                                            <a href="#" class="btn btn-info active" role="button"
-                                               data-bs-toggle="button" aria-pressed="true">10:00
-                                                - 11:00</a>
-                                        </td>
-
-                                    </c:when>
-                                    <c:otherwise>
-
-                                        <td class="text-info">
-                                            <a href="#" class="btn btn-secondary disabled" tabindex="-1"
-                                               role="button" data-bs-toggle="button">10:00 - 11:00</a>
-                                        </td>
-
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${day.check11amAvailability() == true}">
-
-                                        <td>
-                                            <a href="#" class="btn btn-info active" role="button"
-                                               data-bs-toggle="button" aria-pressed="true">11:00
-                                                - 12:00</a>
-                                        </td>
-
-                                    </c:when>
-                                    <c:otherwise>
-
-                                        <td class="text-info">
-                                            <a href="#" class="btn btn-secondary disabled" tabindex="-1"
-                                               role="button" data-bs-toggle="button">11:00 - 12:00</a>
-                                        </td>
-
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${day.check13amAvailability() == true}">
-
-                                        <td>
-                                            <a href="#" class="btn btn-info active" role="button"
-                                               data-bs-toggle="button" aria-pressed="true">13:00
-                                                - 14:00</a>
-                                        </td>
-
-                                    </c:when>
-                                    <c:otherwise>
-
-                                        <td class="text-info">
-                                            <a href="#" class="btn btn-secondary disabled" tabindex="-1"
-                                               role="button" data-bs-toggle="button">13:00 - 14:00</a>
-                                        </td>
-
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${day.check14amAvailability() == true}">
-
-                                        <td>
-                                            <a href="#" class="btn btn-info active" role="button"
-                                               data-bs-toggle="button" aria-pressed="true">14:00
-                                                - 15:00</a>
-                                        </td>
-
-                                    </c:when>
-                                    <c:otherwise>
-
-                                        <td class="text-info">
-                                            <a href="#" class="btn btn-secondary disabled" tabindex="-1"
-                                               role="button" data-bs-toggle="button">14:00 - 15:00</a>
-                                        </td>
-
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${day.check15amAvailability() == true}">
-
-                                        <td>
-                                            <a href="#" class="btn btn-info active" role="button"
-                                               data-bs-toggle="button" aria-pressed="true">15:00
-                                                - 16:00</a>
-                                        </td>
-
-                                    </c:when>
-                                    <c:otherwise>
-
-                                        <td class="text-info">
-                                            <a href="#" class="btn btn-secondary disabled" tabindex="-1"
-                                               role="button" data-bs-toggle="button">15:00 - 16:00</a>
-                                        </td>
-
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:choose>
-                                    <c:when test="${day.check16amAvailability() == true}">
-
-                                        <td>
-                                            <a href="#" class="btn btn-info active" role="button"
-                                               data-bs-toggle="button" aria-pressed="true">16:00
-                                                - 17:00</a>
-                                        </td>
-
-                                    </c:when>
-                                    <c:otherwise>
-
-                                        <td class="text-info">
-                                            <a href="#" class="btn btn-secondary disabled" tabindex="-1"
-                                               role="button" data-bs-toggle="button">16:00 - 17:00</a>
-                                        </td>
-
-                                    </c:otherwise>
-                                </c:choose>
+    <div class="content-wrapper">
+        <section class="content">
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="col-md-9">
+                        <table class="table table-sm table-bordered text-center">
+                            <thead>
+                            <tr style="width: 14.28%">
+                                <td><span class="timeSlot">${sevenWorkDays.get(0).certainDay}</span>
+                                <span class="timeSlot">${sevenWorkDays.get(0).certainDay.dayOfWeek}</span></td>
                             </tr>
-                        </c:forEach>
-                        <c:if test="${currentPage.}}"
-                    </table>
+                            <tr style="width: 14.28%">
+                                <td><span class="timeSlot">${sevenWorkDays.get(1).certainDay}</span>
+                                <span class="timeSlot">${sevenWorkDays.get(1).certainDay.dayOfWeek}</span></td>
+                            </tr>
+                            <tr style="width: 14.28%">
+                                <td><span class="timeSlot">${sevenWorkDays.get(2).certainDay}</span>
+                                <span class="timeSlot">${sevenWorkDays.get(2).certainDay.dayOfWeek}</span></td>
+                            </tr>
+                            <tr style="width: 14.28%">
+                                <td><span class="timeSlot">${sevenWorkDays.get(3).certainDay}</span>
+                                <span class="timeSlot">${sevenWorkDays.get(3).certainDay.dayOfWeek}</span></td>
+                            </tr>
+                            <tr style="width: 14.28%">
+                                <td><span class="timeSlot">${sevenWorkDays.get(4).certainDay}</span>
+                                <span class="timeSlot">${sevenWorkDays.get(4).certainDay.dayOfWeek}</span></td>
+                            </tr>
+                            <tr style="width: 14.28%">
+                                <td><span class="timeSlot">${sevenWorkDays.get(5).certainDay}</span>
+                                <span class="timeSlot">${sevenWorkDays.get(5).certainDay.dayOfWeek}</span></td>
+                            </tr>
+                            <tr style="width: 14.28%">
+                                <td><span class="timeSlot">${sevenWorkDays.get(6).certainDay}</span>
+                                <span class="timeSlot">${sevenWorkDays.get(6).certainDay.dayOfWeek}</span></td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                        </table>
+                        <table class="table table-sm table-bordered text-center">
+                            <c:forEach items="${sevenWorkDays}" var="day">
+                                <tr>
+                                    <c:choose>
+                                        <c:when test="${day.check8amAvailability() == true}">
+
+                                            <td>
+                                                <a href="#" class="btn btn-info active" role="button"
+                                                   data-bs-toggle="button" aria-pressed="true"><span class="timeSlot">08:00
+                                                - 09:00</span></a>
+                                            </td>
+
+                                        </c:when>
+                                        <c:otherwise>
+
+                                            <td class="text-info">
+                                                <a href="#" class="btn btn-secondary disabled" tabindex="-1"
+                                                   role="button" data-bs-toggle="button"><span class="timeSlot">08:00 - 09:00</span></a>
+                                            </td>
+
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${day.check9amAvailability() == true}">
+
+                                            <td>
+                                                <a href="#" class="btn btn-info active" role="button"
+                                                   data-bs-toggle="button" aria-pressed="true"><span class="timeSlot">09:00
+                                                - 10:00</span></a>
+                                            </td>
+
+                                        </c:when>
+                                        <c:otherwise>
+
+                                            <td class="text-info">
+                                                <a href="#" class="btn btn-secondary disabled" tabindex="-1"
+                                                   role="button" data-bs-toggle="button"><span class="timeSlot">09:00 - 10:00</span></a>
+                                            </td>
+
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${day.check10amAvailability() == true}">
+
+                                            <td>
+                                                <a href="#" class="btn btn-info active" role="button"
+                                                   data-bs-toggle="button" aria-pressed="true"><span class="timeSlot">10:00
+                                                - 11:00</span></a>
+                                            </td>
+
+                                        </c:when>
+                                        <c:otherwise>
+
+                                            <td class="text-info">
+                                                <a href="#" class="btn btn-secondary disabled" tabindex="-1"
+                                                   role="button" data-bs-toggle="button"><span class="timeSlot">10:00 - 11:00</span></a>
+                                            </td>
+
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${day.check11amAvailability() == true}">
+
+                                            <td>
+                                                <a href="#" class="btn btn-info active" role="button"
+                                                   data-bs-toggle="button" aria-pressed="true"><span class="timeSlot">11:00
+                                                - 12:00</span></a>
+                                            </td>
+
+                                        </c:when>
+                                        <c:otherwise>
+
+                                            <td class="text-info">
+                                                <a href="#" class="btn btn-secondary disabled" tabindex="-1"
+                                                   role="button" data-bs-toggle="button"><span class="timeSlot">11:00 - 12:00</span></a>
+                                            </td>
+
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${day.check13amAvailability() == true}">
+
+                                            <td>
+                                                <a href="#" class="btn btn-info active" role="button"
+                                                   data-bs-toggle="button" aria-pressed="true"><span class="timeSlot">13:00
+                                                - 14:00</span></a>
+                                            </td>
+
+                                        </c:when>
+                                        <c:otherwise>
+
+                                            <td class="text-info">
+                                                <a href="#" class="btn btn-secondary disabled" tabindex="-1"
+                                                   role="button" data-bs-toggle="button"><span class="timeSlot">13:00 - 14:00</span></a>
+                                            </td>
+
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${day.check14amAvailability() == true}">
+
+                                            <td>
+                                                <a href="#" class="btn btn-info active" role="button"
+                                                   data-bs-toggle="button" aria-pressed="true"><span class="timeSlot">14:00
+                                                - 15:00</span></a>
+                                            </td>
+
+                                        </c:when>
+                                        <c:otherwise>
+
+                                            <td class="text-info">
+                                                <a href="#" class="btn btn-secondary disabled" tabindex="-1"
+                                                   role="button" data-bs-toggle="button"><span class="timeSlot">14:00 - 15:00</span></a>
+                                            </td>
+
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${day.check15amAvailability() == true}">
+
+                                            <td>
+                                                <a href="#" class="btn btn-info active" role="button"
+                                                   data-bs-toggle="button" aria-pressed="true"><span class="timeSlot">15:00
+                                                - 16:00</span></a>
+                                            </td>
+
+                                        </c:when>
+                                        <c:otherwise>
+
+                                            <td class="text-info">
+                                                <a href="#" class="btn btn-secondary disabled" tabindex="-1"
+                                                   role="button" data-bs-toggle="button"><span class="timeSlot">15:00 - 16:00</span></a>
+                                            </td>
+
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${day.check16amAvailability() == true}">
+
+                                            <td>
+                                                <a href="#" class="btn btn-info active" role="button"
+                                                   data-bs-toggle="button" aria-pressed="true"><span class="timeSlot">16:00
+                                                - 17:00</span></a>
+                                            </td>
+
+                                        </c:when>
+                                        <c:otherwise>
+
+                                            <td class="text-info">
+                                                <a href="#" class="btn btn-secondary disabled" tabindex="-1"
+                                                   role="button" data-bs-toggle="button"><span class="timeSlot">16:00 - 17:00</span></a>
+                                            </td>
+
+                                        </c:otherwise>
+                                    </c:choose>
+                                </tr>
+                            </c:forEach>
+                        </table>
+                        <td><a href='<c:url value="/timeslots/${currentPage - 1}"/>'>Previous page</a></td>
+                        <td><a href='<c:url value="/timeslots/${currentPage + 1}"/>'>Next page</a></td>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
+        </section>
+    </div>
 
     <!-- /.content-wrapper -->
 
@@ -426,5 +440,9 @@
         });
     });
 </script>
+<%
+    Long temporaryPageHolder = (Long) session.getAttribute("defaultPage");
+
+%>
 </body>
 </html>
