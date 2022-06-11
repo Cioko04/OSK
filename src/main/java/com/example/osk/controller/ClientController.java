@@ -2,7 +2,7 @@ package com.example.osk.controller;
 
 import com.example.osk.model.Client;
 import com.example.osk.service.ClientServiceImpl;
-import com.example.osk.web.dto.ClientRegistrationDto;
+import com.example.osk.dto.ClientRegistrationDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +38,7 @@ public class ClientController {
     @PostMapping("/addClient")
     public RedirectView addClient(@ModelAttribute ClientRegistrationDto clientRegistrationDto) {
         clientService.save(clientRegistrationDto);
-        return new RedirectView("/clients");
+        return new RedirectView("/");
     }
 
     // get client for only edit view
@@ -51,9 +51,9 @@ public class ClientController {
 
     // save edit client
     @PostMapping("/addClient/{id}")
-    public RedirectView postEditClient(@Valid @ModelAttribute Client newClient, @PathVariable("id") Long id) {
+    public RedirectView postEditClient(@ModelAttribute Client newClient, @PathVariable("id") Long id) {
         clientService.editClient(newClient);
-        return new RedirectView("/clients");
+        return new RedirectView("/");
     }
 
     // delete client

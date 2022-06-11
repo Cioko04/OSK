@@ -1,4 +1,4 @@
-package com.example.osk.web.dto;
+package com.example.osk.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,6 +12,7 @@ public class InstructorRegistrationDto {
     private Integer age;
     private String categories;
     private String password;
+    private String email;
     private String catA;
     private String catA_1;
     private String catA_2;
@@ -29,13 +30,14 @@ public class InstructorRegistrationDto {
     private String catD1E;
     private String catT;
 
-    public InstructorRegistrationDto(String name, String surname, String description, Integer age, String categories, String password, String catA, String catA_1, String catA_2, String catAM, String catB, String catB1, String catBE, String catC, String catC1, String catCE, String catC1E, String catD, String catD1, String catDE, String catD1E, String catT) {
+    public InstructorRegistrationDto(String name, String surname, String description, Integer age, String categories, String email, String catA, String catA_1, String catA_2, String catAM, String catB, String catB1, String catBE, String catC, String catC1, String catCE, String catC1E, String catD, String catD1, String catDE, String catD1E, String catT) {
         this.name = name;
         this.surname = surname;
         this.description = description;
         this.age = age;
         this.categories = categories;
         this.password = "admin";
+        this.email = email;
         this.catA = catA;
         this.catA_1 = catA_1;
         this.catA_2 = catA_2;

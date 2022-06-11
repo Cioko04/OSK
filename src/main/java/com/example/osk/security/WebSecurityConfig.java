@@ -1,17 +1,19 @@
-package com.example.osk.config;
+package com.example.osk.security;
 
 import com.example.osk.service.ClientService;
 import com.example.osk.service.InstructorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.firewall.DefaultHttpFirewall;
 import org.springframework.security.web.firewall.HttpFirewall;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -21,14 +23,20 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private ClientService clientService;
-    @Autowired
-    private InstructorService instructorService;
+
+
+    private final ClientService clientService;
+
+    private final InstructorService instructorService;
+    public WebSecurityConfig(@Lazy ClientService clientService, @Lazy InstructorService instructorService) {
+        this.clientService = clientService;
+        this.instructorService = instructorService;
+    }
+
 
 
     @Bean
-    protected BCryptPasswordEncoder passwordEncoder() {
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -54,11 +62,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(authenticationInstructorProvider());
         auth.inMemoryAuthentication()
                 .withUser("user").password(passwordEncoder()
-                        .encode("user")).roles("USER")
+                        .encode("user")).roles("USER_TEST")
                 .and()
                 .withUser("admin").password(passwordEncoder()
-                        .encode("admin")).roles("ADMIN");
+                        .encode("admin")).roles("ADMIN_TEST");
+
     }
+
     @Bean
     public HttpFirewall getHttpFirewall() {
         return new DefaultHttpFirewall();
@@ -68,10 +78,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/bookPracticalLesson")
-                .hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+                .antMatchers("/bookPracticalLesson", "/editProfile")
+                .hasAnyAuthority("ROLE_USER", "ROLE_USER_TEST", "ROLE_ADMIN", "ROLE_ADMIN_TEST")
                 .antMatchers("/clients", "/instructors", "/vehicles")
-                .hasAnyAuthority("ROLE_ADMIN")
+                .hasAnyAuthority("ROLE_ADMIN", "ROLE_ADMIN_TEST")
                 .and()
                 .csrf().disable()
                 .headers().frameOptions().disable()

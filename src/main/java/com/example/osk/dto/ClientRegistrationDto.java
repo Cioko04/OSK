@@ -1,4 +1,4 @@
-package com.example.osk.web.dto;
+package com.example.osk.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,11 +10,13 @@ public class ClientRegistrationDto {
     private String surname;
     private int age;
     private String password;
+    private String email;
 
-    public ClientRegistrationDto(String name, String surname, int age) {
+    public ClientRegistrationDto(String name, String surname, int age, String password, String email) {
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.password = "user";
+        this.email = email;
     }
 }
