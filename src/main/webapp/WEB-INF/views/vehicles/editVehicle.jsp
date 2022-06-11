@@ -10,11 +10,11 @@
     <%@include file="../dynamic/navigationMain.jspf"%>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper background-main-image">
 
         <!-- Content Header (Page header) -->
         <div class="content-header">
-            <div class="container-fluid">
+            <div class="container-fluid ">
                 <div class="row mb-2">
                     <div class="col-sm-6">
                     </div><!-- /.col -->
@@ -69,7 +69,7 @@
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
-            <div class="container-fluid">
+            <div class="container-fluid opacity">
                 <form method="post" action='<c:url value="/addVehicle/${vehicle.id}"/>'>
                     <!-- Content Row -->
                     <div class="row">

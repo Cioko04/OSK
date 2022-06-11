@@ -14,14 +14,15 @@
 <%--    End of sidebar--%>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper background-main-image">
         <!-- Content Header (Page header) -->
-
+        <div class="content-header">
+        </div>
         <!-- /.content-header -->
 
         <!-- Main content -->
         <section class="content">
-            <div class="container-fluid">
+            <div class="container-fluid opacity">
                 <!-- Info boxes -->
                 <div class="row">
                     <div class="col-12 col-sm-6 col-md-3">

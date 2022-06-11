@@ -9,7 +9,7 @@
 <div class="wrapper">
     <%@include file="../dynamic/navigationMain.jspf"%>
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper background-main-image">
 
         <!-- Content Header (Page header) -->
         <div class="content-header">
@@ -30,13 +30,13 @@
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
-            <div class="container-fluid">
+            <div class="container-fluid opacity">
 
 
                 <!-- Page Heading -->
 
                 <!-- DataTales Example -->
-                <div class="card shadow mb-4">
+                <div class="card shadow mb-4 form-border">
 
                     <div class="card-body">
                         <div class="table-responsive">

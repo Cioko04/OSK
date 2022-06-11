@@ -1,5 +1,7 @@
 .primary-light-sidebar, .top-nav-bar{
     background-color: rgba(0, 12, 26, 0.84);
+    border-bottom: 1px solid #007bff;
+    border-top: 1px solid #007bff;
 }
 .a-sidebar, .a-link-sidebar{
     color: #f8f9fa;
@@ -24,4 +26,20 @@
 .section-border{
     border-bottom: 1px solid #007bff;
 }
-
+.background-main-image{
+    background-image: url("../img/tlo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height:100%;
+}
+.opacity{
+    opacity:0.9;
+}
+.form-border{
+    border-radius:30px;
+    border: 2px rgba(0, 12, 26, 0.84) solid;
+}

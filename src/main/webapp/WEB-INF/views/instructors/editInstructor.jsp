@@ -10,7 +10,7 @@
     <%@include file="../dynamic/navigationMain.jspf"%>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper background-main-image">
 
         <!-- Content Header (Page header) -->
         <div class="content-header">
@@ -20,12 +20,12 @@
         <!-- Main Content -->
         <div id="content">
             <!-- Begin Page Content -->
-            <div class="container-fluid">
+            <div class="container-fluid opacity">
                 <form method="post" action='<c:url value="/addInstructor/${instructor.id}"/>'>
                     <!-- Content Row -->
                     <div class="row justify-content-center">
                         <div class="col-xl-8 col-md-12 mb-12">
-                            <div class="card shadow mb-4">
+                            <div class="card shadow mb-4 form-border">
                                 <div class="card-header py-3">
                                     <div class="form-group row">
                                         <label class="col-2 col-form-label">
