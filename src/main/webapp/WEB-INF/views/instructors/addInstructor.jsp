@@ -1,12 +1,25 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ page contentType="text/html; charset=UTF-8" %>
-<title>OSK Service | Dashboard</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+    <%@ page contentType="text/html; charset=UTF-8" %>
+    <title>OSK Service | Dashboard</title>
 
-<%@include file="../dynamic/link.jspf" %>
+    <%@include file="../dynamic/link.jspf" %>
+</head>
+<!--
+`body` tag options:
 
+  Apply one or more of the following classes to to the body tag
+  to get the desired effect
+
+  * sidebar-collapse
+  * sidebar-mini
+-->
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
+
     <%@include file="../dynamic/navigationMain.jspf"%>
 
     <!-- Content Wrapper. Contains page content -->
@@ -28,42 +41,42 @@
                             <div class="card shadow mb-4 form-border">
                                 <div class="card-header py-3">
                                     <div class="form-group row">
-                                        <label class="col-2 col-form-label">
+                                        <label class="col-5 col-form-label">
                                             <h3 class="card-title text-bold text-lg">Imię: </h3>
                                         </label>
-                                        <div class="col-10">
+                                        <div class="col-12">
                                             <input class="form-control" type="text" name="name" placeholder="uzupełnij imię">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label  class="col-2 col-form-label">
+                                        <label  class="col-5 col-form-label">
                                             <h3 class="card-title text-bold text-lg">Nazwisko: </h3>
                                         </label>
-                                        <div class="col-10">
+                                        <div class="col-12">
                                             <input class="form-control" type="text" name="surname" placeholder="uzupełnij nazwisko">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label  class="col-2 col-form-label">
+                                        <label  class="col-5 col-form-label">
                                             <h3 class="card-title text-bold text-lg">Wiek: </h3>
                                         </label>
-                                        <div class="col-10">
+                                        <div class="col-12">
                                             <input class="form-control" type=number name="age" placeholder="uzupełnij wiek">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label  class="col-2 col-form-label">
+                                        <label  class="col-5 col-form-label">
                                             <h3 class="card-title text-bold text-lg">Email: </h3>
                                         </label>
-                                        <div class="col-10">
+                                        <div class="col-12">
                                             <input class="form-control" type=text name="email" placeholder="uzupełnij email">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label  class="col-2 col-form-label">
+                                        <label  class="col-5 col-form-label">
                                             <h3 class="card-title text-bold text-lg">Opis: </h3>
                                         </label>
-                                        <div class="col-10">
+                                        <div class="col-12">
                                             <input class="form-control" type="text" name="description" placeholder="Dodaj opis">
                                         </div>
                                     </div>
@@ -184,8 +197,8 @@
                                         </div>
                                     </div>
 
-                                    <p class="float-right m-1">
-                                        <input class="btn btn-primary pull-left" type="submit" value="Dodaj instruktora" id="searchButton"/>
+                                    <p class="float-right mr-1">
+                                        <input class="btn btn-dark pull-left" type="submit" value="Dodaj instruktora" id="searchButton"/>
                                     </p>
 
                                 </div>
@@ -204,9 +217,8 @@
     </div>
     <!-- /.content-wrapper -->
     <%@include file="../dynamic/footer.jspf"%>
+    <!-- ./wrapper -->
 </div>
-<!-- ./wrapper -->
-
 <%@include file="../dynamic/javaScript.jspf" %>
 </body>
 </html>

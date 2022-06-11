@@ -8,7 +8,6 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
     <%@include file="../dynamic/navigationMain.jspf"%>
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper background-main-image">
         <!-- Content Header (Page header) -->
@@ -26,55 +25,39 @@
                         <div class="card shadow mb-4 form-border">
                             <div class="card-header py-3">
                                 <div class="form-group row">
-                                    <label class="col-2 col-form-label">
+                                    <label class="col-5 col-form-label">
                                         <h3 class="card-title text-bold text-lg">Imię: </h3>
                                     </label>
-                                    <div class="col-10">
+                                    <div class="col-12">
                                         <input class="form-control" type="text" name="name" placeholder="uzupełnij imię">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label  class="col-2 col-form-label">
+                                    <label  class="col-5 col-form-label">
                                         <h3 class="card-title text-bold text-lg">Nazwisko: </h3>
                                     </label>
-                                    <div class="col-10">
+                                    <div class="col-12">
                                         <input class="form-control" type="text" name="surname" placeholder="uzupełnij nazwisko">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label  class="col-2 col-form-label">
+                                    <label  class="col-5 col-form-label">
                                         <h3 class="card-title text-bold text-lg">Wiek: </h3>
                                     </label>
-                                    <div class="col-10">
-                                            <input class="form-control" type=number name="age" placeholder="uzupełnij wiek">
+                                    <div class="col-12">
+                                        <input class="form-control" type=number name="age" placeholder="uzupełnij wiek">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label  class="col-2 col-form-label">
+                                    <label  class="col-5 col-form-label">
                                         <h3 class="card-title text-bold text-lg">Email: </h3>
                                     </label>
-                                    <div class="col-10">
+                                    <div class="col-12">
                                         <input class="form-control" type=text name="email" placeholder="uzupełnij email">
                                     </div>
                                 </div>
-                                <input
-                                        type="hidden"
-                                        name="accountNonExpired"
-                                        value="${true}"
-                                />
-                                <input
-                                        type="hidden"
-                                        name="accountNonLocked"
-                                        value="${true}"
-                                />
-                                <input
-                                        type="hidden"
-                                        name="credentialsNonExpired"
-                                        value="${true}"
-                                />
-
-                                <p class="float-right m-1">
-                                    <input class="btn btn-primary pull-left" type="submit" value="Dodaj użytkownika" id="searchButton"/>
+                                <p class="float-right mr-1">
+                                    <input class="btn btn-dark pull-left" type="submit" value="Dodaj użytkownika" id="searchButton"/>
                                 </p>
 
                             </div>
@@ -86,10 +69,10 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <%@include file="../dynamic/footer.jspf"%>>
+    <%@include file="../dynamic/footer.jspf"%>
 </div>
 <!-- ./wrapper -->
 
 <%@include file="../dynamic/javaScript.jspf" %>
 </body>
-</html>
+

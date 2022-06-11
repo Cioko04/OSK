@@ -14,143 +14,76 @@
 
         <!-- Content Header (Page header) -->
         <div class="content-header">
-            <div class="container-fluid ">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+
         </div>
         <!-- /.content-header -->
 
         <!-- Main Content -->
         <div id="content">
-
-            <%--                    <!-- Topbar -->--%>
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                <!-- Sidebar Toggle (Topbar) -->
-
-                </button>
-
-
-
-                <%--                        <!-- Topbar Navbar -->--%>
-                <ul class="navbar-nav ml-auto">
-
-                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                    <li class="nav-item dropdown no-arrow d-sm-none">
-                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <!-- Dropdown - Messages -->
-                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                            <form class="form-inline mr-auto w-100 navbar-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </li>
-
-
-
-
-                    <div class="topbar-divider d-none d-sm-block"></div>
-
-                </ul>
-
-            </nav>
-            <!-- End of Topbar -->
-
             <!-- Begin Page Content -->
             <div class="container-fluid opacity">
                 <form method="post" action='<c:url value="/addVehicle/${vehicle.id}"/>'>
                     <!-- Content Row -->
-                    <div class="row">
-                        <div class="col-xl-12 col-md-12 mb-12">
-                            <div class="card shadow mb-4">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-8 col-md-12 mb-12">
+                            <div class="card shadow mb-4 form-border">
                                 <div class="card-header py-3">
                                     <div class="form-group row">
-                                        <label class="col-2 col-form-label">Imię</label>
-                                        <div class="col-10">
+                                        <label class="col-5 col-form-label">
+                                            <h3 class="card-title text-bold text-lg">Nazwa: </h3>
+                                        </label>
+                                        <div class="col-12">
                                             <input class="form-control" type="text" name="name" value="${vehicle.name}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label  class="col-2 col-form-label">Typ</label>
-                                        <div class="col-10">
+                                        <label  class="col-5 col-form-label">
+                                            <h3 class="card-title text-bold text-lg">Typ: </h3>
+                                        </label>
+                                        <div class="col-12">
                                             <input class="form-control" type="text" name="type" value="${vehicle.type}">
                                         </div>
                                     </div>
-
                                     <div class="form-group row">
-                                        <label  class="col-2 col-form-label">Status</label>
-                                        <div class="col-10">
+                                        <label  class="col-5 col-form-label">
+                                            <h3 class="card-title text-bold text-lg">Status: </h3>
+                                        </label>
+                                        <div class="col-12">
                                             <input class="form-control" type="text" name="status" value="${vehicle.status}">
                                         </div>
                                     </div>
-
                                     <div class="form-group row">
-                                        <label  class="col-2 col-form-label">Kolor kalendarza</label>
-                                        <div class="col-10">
+                                        <label  class="col-5 col-form-label">
+                                            <h3 class="card-title text-bold text-lg">Kolor kalendarza: </h3>
+                                        </label>
+                                        <div class="col-12">
                                             <input class="form-control" type="text" name="colour" value="${vehicle.colour}">
                                         </div>
                                     </div>
-
                                     <div class="form-group row">
-                                        <label  class="col-2 col-form-label">Szkoła/Oddział</label>
-                                        <div class="col-10">
+                                        <label  class="col-5 col-form-label">
+                                            <h3 class="card-title text-bold text-lg">Szkoła/Oddział: </h3>
+                                        </label>
+                                        <div class="col-12">
                                             <input class="form-control" type="text" name="department" value="${vehicle.department}">
                                         </div>
                                     </div>
+                                    <p class="float-right">
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+                                            Usuń
+                                        </button>
+                                    </p>
+                                    <p class="float-right mr-1">
+                                        <input class="btn btn-dark pull-left" type="submit" value="Zapisz zmiany" id="searchButton"/>
+                                    </p>
 
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <input class="btn btn-success pull-left" type="submit" value="Zapisz zmiany" id="searchButton"></input>
-
-
-                    <!-- Button to Open the Modal -->
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-                        Usuń
-                    </button>
                 </form>
                 <!-- The Modal -->
-                <div class="modal" id="myModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
 
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Czy na pewno chcesz usunąć osobę ?</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                Jeżeli usuniesz to już nie będzie odwrotu
-                            </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">Anuluj</button>
-                                <form method="post" action='<c:url value="/editVehicle/${vehicle.id}"/>'>
-                                    <input type="submit" class="btn btn-danger pull-left" value="Tak"/>
-                                </form>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
             </div>
             <!-- /.container-fluid -->
 
@@ -158,6 +91,33 @@
         <!-- End of Main Content -->
 
 
+    </div>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Czy na pewno chcesz usunąć auto?</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    Jeżeli usuniesz to już nie będzie odwrotu
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Anuluj</button>
+                    <form method="post" action='<c:url value="/editVehicle/${vehicle.id}"/>'>
+                        <input type="submit" class="btn btn-danger pull-left" value="Tak"/>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
     </div>
     <!-- /.content-wrapper -->
     <%@include file="../dynamic/footer.jspf"%>

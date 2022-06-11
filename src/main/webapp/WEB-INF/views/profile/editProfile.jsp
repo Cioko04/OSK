@@ -84,7 +84,7 @@
                                         value="${true}"
                                 />
                                 <p class="float-right m-1">
-                                    <input class="btn btn-primary pull-left" type="submit" value="Zapisz zmiany" id="searchButton"/>
+                                    <input class="btn btn-dark pull-left" type="submit" value="Zapisz zmiany" id="searchButton"/>
                                 </p>
 
                             </div>
