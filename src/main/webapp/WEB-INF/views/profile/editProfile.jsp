@@ -25,7 +25,7 @@
                         action='<c:url value="/addClient/${person.id}"/>'
                     </sec:authorize>
                     <sec:authorize access="hasAnyRole('ROLE_ADMIN_TEST', 'ROLE_ADMIN')">
-                        action='<c:url value="/editInstructor/${person.id}"/>'
+                        action='<c:url value="/addInstructor/${person.id}"/>'
                     </sec:authorize>
             >
                 <!-- Content Row -->
@@ -83,6 +83,93 @@
                                         name="enabled"
                                         value="${true}"
                                 />
+                                <sec:authorize access="hasAnyRole('ROLE_ADMIN_TEST', 'ROLE_ADMIN')">
+                                    <input
+                                            type="hidden"
+                                            name="description"
+                                            value="${person.description}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="catA"
+                                            value="${person.catA}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="catA_1"
+                                            value="${person.catA_1}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="catA_2"
+                                            value="${person.catA_2}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="catAM"
+                                            value="${person.catAM}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="catB"
+                                            value="${person.catB}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="catB1"
+                                            value="${person.catB1}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="catBE"
+                                            value="${person.catBE}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="catC"
+                                            value="${person.catC}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="catC1"
+                                            value="${person.catC1}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="catCE"
+                                            value="${person.catCE}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="catC1E"
+                                            value="${person.catC1E}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="catD"
+                                            value="${person.catD}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="catD1"
+                                            value="${person.catD1}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="catDE"
+                                            value="${person.catDE}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="catD1E"
+                                            value="${person.catD1E}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="catT"
+                                            value="${person.catT}"
+                                    />
+                                </sec:authorize>
                                 <p class="float-right m-1">
                                     <input class="btn btn-dark pull-left" type="submit" value="Zapisz zmiany" id="searchButton"/>
                                 </p>

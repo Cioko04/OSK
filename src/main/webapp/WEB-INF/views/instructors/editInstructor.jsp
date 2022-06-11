@@ -1,12 +1,25 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ page contentType="text/html; charset=UTF-8" %>
-<title>OSK Service | Dashboard</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+    <%@ page contentType="text/html; charset=UTF-8" %>
+    <title>OSK Service | Dashboard</title>
 
-<%@include file="../dynamic/link.jspf" %>
+    <%@include file="../dynamic/link.jspf" %>
+</head>
+<!--
+`body` tag options:
 
+  Apply one or more of the following classes to to the body tag
+  to get the desired effect
+
+  * sidebar-collapse
+  * sidebar-mini
+-->
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
+
     <%@include file="../dynamic/navigationMain.jspf"%>
 
     <!-- Content Wrapper. Contains page content -->
@@ -59,6 +72,14 @@
                                             <input class="form-control" type="email" name="email" value="${instructor.email}">
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label  class="col-5 col-form-label">
+                                            <h3 class="card-title text-bold text-lg">Opis: </h3>
+                                        </label>
+                                        <div class="col-12">
+                                            <input class="form-control" type="text" name="description" value="${instructor.description}">
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <label  class="col-12 col-form-label">
@@ -70,7 +91,7 @@
                                                 <div class="form-check">
                                                     <input type="checkbox" class="form-check-input" value="A" name="catA"
                                                     <c:choose>
-                                                    <c:when test="${instructor.catA != null}">
+                                                    <c:when test="${instructor.catA == 'A'}">
                                                            checked
                                                     </c:when>
                                                     </c:choose>
@@ -82,7 +103,7 @@
                                                 <div class="form-check">
                                                     <input type="checkbox" class="form-check-input" value="A1" name="catA_1"
                                                     <c:choose>
-                                                    <c:when test="${instructor.catA_1 != null}">
+                                                    <c:when test="${instructor.catA_1 == 'A1'}">
                                                            checked
                                                     </c:when>
                                                     </c:choose>
@@ -94,7 +115,7 @@
                                                 <div class="form-check">
                                                     <input type="checkbox" class="form-check-input" value="A2" name="catA_2"
                                                     <c:choose>
-                                                    <c:when test="${instructor.catA_2 != null}">
+                                                    <c:when test="${instructor.catA_2 == 'A2'}">
                                                            checked
                                                     </c:when>
                                                     </c:choose>
@@ -106,7 +127,7 @@
                                                 <div class="form-check">
                                                     <input type="checkbox" class="form-check-input" value="AM" name="catAM"
                                                     <c:choose>
-                                                    <c:when test="${instructor.catAM != null}">
+                                                    <c:when test="${instructor.catAM == 'AM'}">
                                                            checked
                                                     </c:when>
                                                     </c:choose>
@@ -120,7 +141,7 @@
                                                 <div class="form-check">
                                                     <input type="checkbox" class="form-check-input" value="B" name="catB"
                                                     <c:choose>
-                                                    <c:when test="${instructor.catB != null}">
+                                                    <c:when test="${instructor.catB == 'B'}">
                                                            checked
                                                     </c:when>
                                                     </c:choose>
@@ -132,7 +153,7 @@
                                                 <div class="form-check">
                                                     <input type="checkbox" class="form-check-input" value="B1" name="catB1"
                                                     <c:choose>
-                                                    <c:when test="${instructor.catB1 != null}">
+                                                    <c:when test="${instructor.catB1 == 'B1'}">
                                                            checked
                                                     </c:when>
                                                     </c:choose>>
@@ -143,7 +164,7 @@
                                                 <div class="form-check">
                                                     <input type="checkbox" class="form-check-input" value="BE" name="catBE"
                                                     <c:choose>
-                                                    <c:when test="${instructor.catBE != null}">
+                                                    <c:when test="${instructor.catBE == 'BE'}">
                                                            checked
                                                     </c:when>
                                                     </c:choose>>
@@ -156,7 +177,7 @@
                                                 <div class="form-check">
                                                     <input type="checkbox" class="form-check-input" value="C" name="catC"
                                                     <c:choose>
-                                                    <c:when test="${instructor.catC != null}">
+                                                    <c:when test="${instructor.catC == 'C'}">
                                                            checked
                                                     </c:when>
                                                     </c:choose>>
@@ -167,7 +188,7 @@
                                                 <div class="form-check" disabled>
                                                     <input type="checkbox" class="form-check-input" value="C1" name="catC1"
                                                     <c:choose>
-                                                    <c:when test="${instructor.catC1 != null}">
+                                                    <c:when test="${instructor.catC1 == 'C1'}">
                                                            checked
                                                     </c:when>
                                                     </c:choose>>
@@ -178,7 +199,7 @@
                                                 <div class="form-check">
                                                     <input type="checkbox" class="form-check-input" value="CE" name="catCE"
                                                     <c:choose>
-                                                    <c:when test="${instructor.catCE != null}">
+                                                    <c:when test="${instructor.catCE == 'CE'}">
                                                            checked
                                                     </c:when>
                                                     </c:choose>>
@@ -189,7 +210,7 @@
                                                 <div class="form-check">
                                                     <input type="checkbox" class="form-check-input" value="C1E" name="catC1E"
                                                     <c:choose>
-                                                    <c:when test="${instructor.catC1E != null}">
+                                                    <c:when test="${instructor.catC1E == 'C1E'}">
                                                            checked
                                                     </c:when>
                                                     </c:choose>>
@@ -204,7 +225,7 @@
                                                 <div class="form-check">
                                                     <input type="checkbox" class="form-check-input" value="D" name="catD"
                                                     <c:choose>
-                                                    <c:when test="${instructor.catD != null}">
+                                                    <c:when test="${instructor.catD == 'D'}">
                                                            checked
                                                     </c:when>
                                                     </c:choose>>
@@ -215,7 +236,7 @@
                                                 <div class="form-check">
                                                     <input type="checkbox" class="form-check-input" value="D1" name="catD1"
                                                     <c:choose>
-                                                    <c:when test="${instructor.catD1 != null}">
+                                                    <c:when test="${instructor.catD1 == 'D1'}">
                                                            checked
                                                     </c:when>
                                                     </c:choose>>
@@ -224,7 +245,12 @@
                                             </div>
                                             <div class="col-2">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" value="DE" name="catDE">
+                                                    <input type="checkbox" class="form-check-input" value="DE" name="catDE"
+                                                    <c:choose>
+                                                    <c:when test="${instructor.catDE == 'DE'}">
+                                                           checked
+                                                    </c:when>
+                                                    </c:choose>>>
                                                     <label class="form-check-label" >DE</label>
                                                 </div>
                                             </div>
@@ -232,7 +258,7 @@
                                                 <div class="form-check">
                                                     <input type="checkbox" class="form-check-input" value="D1E" name="catD1E"
                                                     <c:choose>
-                                                    <c:when test="${instructor.catD1E != null}">
+                                                    <c:when test="${instructor.catD1E == 'D1E'}">
                                                            checked
                                                     </c:when>
                                                     </c:choose>>
@@ -246,7 +272,7 @@
                                                 <div class="form-check">
                                                     <input type="checkbox" class="form-check-input" value="T" name="catT"
                                                     <c:choose>
-                                                    <c:when test="${instructor.catT != null}">
+                                                    <c:when test="${instructor.catT == 'T'}">
                                                            checked
                                                     </c:when>
                                                     </c:choose>>
@@ -297,38 +323,10 @@
 
 
     </div>
-    <div class="modal" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Czy na pewno chcesz usunąć instuktora?</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    Jeżeli usuniesz to już nie będzie odwrotu!
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal">Anuluj</button>
-                    <form method="post" action='<c:url value="/editInstructor/${instructor.id}"/>'>
-                        <input type="submit" class="btn btn-danger pull-left" value="Tak"/>
-                    </form>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
     <!-- /.content-wrapper -->
     <%@include file="../dynamic/footer.jspf"%>
+    <!-- ./wrapper -->
 </div>
-<!-- ./wrapper -->
-
 <%@include file="../dynamic/javaScript.jspf" %>
 </body>
 </html>
