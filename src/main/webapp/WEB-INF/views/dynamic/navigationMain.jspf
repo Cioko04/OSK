@@ -37,6 +37,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <sec:authorize access="isAuthenticated()">
+        
         <div class="user-panel section-border mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <img src='<c:url value="/resources/dist/img/user2-160x160.jpg"/>' class="img-circle elevation-2"
@@ -44,7 +45,13 @@
             </div>
             <div class="info">
                 <a href='<c:url value="/editProfile"/>' class="a-sidebar">
+                    <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')">
+                            <sec:authentication property="principal.name"/>
+                    </sec:authorize>
+                    <sec:authorize access="hasAnyRole('ROLE_ADMIN_TEST', 'ROLE_USER_TEST')">
                         <sec:authentication property="name"/>
+                    </sec:authorize>
+
                 </a>
             </div>
         </div>
@@ -55,7 +62,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
 
-                <sec:authorize access="hasAuthority('ROLE_ADMIN')">
+                <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_ADMIN_TEST')">
                     <li class="nav-item">
                         <a href='<c:url value="/vehicles"/>' class="a-link-sidebar">
                             <i class="nav-icon fas fa-car"></i>
@@ -77,7 +84,7 @@
                         </a>
                     </li>
                 </sec:authorize>
-                <sec:authorize access="hasAnyAuthority('ROLE_USER', 'ROLE_ADMIN')">
+                <sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN', 'ROLE_ADMIN_TEST', 'ROLE_USER_TEST')">
                     <li class="nav-item">
                         <a href='<c:url value="/bookPracticalLesson"/>' class="a-link-sidebar">
                             <i class="nav-icon fas fa-book-open"></i>

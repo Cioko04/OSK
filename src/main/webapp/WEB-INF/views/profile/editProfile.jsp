@@ -23,6 +23,14 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-lg-3">
+                        <form method="post"
+                                <sec:authorize access="hasAnyRole('ROLE_USER_TEST', 'ROLE_USER')">
+                                    action='<c:url value="/addClient/${person.id}"/>'
+                                </sec:authorize>
+                                <sec:authorize access="hasAnyRole('ROLE_ADMIN_TEST', 'ROLE_ADMIN')">
+                                    action='<c:url value="/editInstructor/${person.id}"/>'
+                                </sec:authorize>
+                        >
                         <div class="card">
                             <div class="card-header border-0">
                                 <div class="d-flex justify-content-between">
@@ -33,9 +41,8 @@
                             <p>
                             <input
                                     type="text"
-                                    id="username"
-                                    name="username"
-                                    placeholder="${person.name}"
+                                    name="name"
+                                    value="${person.name}"
                             />
                           </p>
                           <p>
@@ -44,9 +51,18 @@
                             <p>
                             <input
                                     type="text"
-                                    id="surname"
                                     name="surname"
-                                    placeholder="${person.surname}"
+                                    value="${person.surname}"
+                            />
+                          </p>
+                            <p>
+                            <h3 class="card-title text-bold text-lg">Email: </h3>
+                            </p>
+                            <p>
+                            <input
+                                    type="text"
+                                    name="email"
+                                    value="${person.email}"
                             />
                           </p>
                           <p>
@@ -55,8 +71,8 @@
                             <p>
                             <input
                                     type="password"
-                                    id="password"
                                     name="password"
+                                    value="${person.password}"
                             />
                           </p>
                           <p>
@@ -65,29 +81,38 @@
                             <p>
                             <input
                                     type="text"
-                                    id="age"
                                     name="age"
-                                    aria-describedby="emailHelp"
-                                    placeholder="${person.age}"
+                                    value="${person.age}"
                             />
                           </p>
+<%--                          <p>--%>
+<%--                            <h3 class="card-title text-bold text-lg">Zdjęcie: </h3>--%>
+<%--                            </p>--%>
+<%--                            <p>--%>
+<%--                            <input--%>
+<%--                                    type="image"--%>
+<%--                                    id="image"--%>
+<%--                                    name="image"--%>
+<%--                            />--%>
+<%--                          </p>--%>
                           <p>
-                            <h3 class="card-title text-bold text-lg">Zdjęcie: </h3>
-                            </p>
-                            <p>
-                            <input
-                                    type="image"
-                                    id="image"
-                                    name="image"
-                            />
-                          </p>
-                          <p>
+                              <input
+                                      type="hidden"
+                                      name="role"
+                                      value="${person.role}"
+                              />
+                              <input
+                                      type="hidden"
+                                      name="enabled"
+                                      value="${true}"
+                              />
                             <input class="btn btn-primary" type="submit" value="Zapisz zmiany" id="searchButton"/>
                           </p>
                         </span>
                                 </div>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
                 <!-- /.row -->

@@ -1,79 +1,80 @@
 package com.example.osk.service;
 
+import com.example.osk.security.ClientDetails;
+import com.example.osk.dto.ClientRegistrationDto;
 import com.example.osk.model.Client;
-import com.example.osk.model.Role;
 import com.example.osk.repository.ClientRepository;
-import com.example.osk.web.dto.ClientRegistrationDto;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Set;
 
-@Service
+@Qualifier("client")
+@Component
 public class ClientServiceImpl implements ClientService {
 
     private final ClientRepository clientRepository;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public ClientServiceImpl(ClientRepository clientRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public ClientServiceImpl(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
+    }
+
+    @Autowired
+    public void setbCryptPasswordEncoder(BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     public Client getClientById(Long id) {
         return this.clientRepository.findById(id).orElse(null);
     }
-    public Client getClientByName(String name) {
 
-        return this.clientRepository.findByName(name);
+    public Client getClientByEmail(String email) {
+        return this.clientRepository.findByEmail(email);
     }
 
     public List<Client> getAllClients() {
         return this.clientRepository.findAll();
     }
 
-    public void editClient(Client client) {
-        this.clientRepository.save(client);
+    public Client editClient(Client client) {
+        client.setPassword(bCryptPasswordEncoder.encode(client.getPassword()));
+        return this.clientRepository.save(client);
     }
 
     public void deleteClient(Long id) {
         this.clientRepository.deleteById(id);
     }
-    public Long getCountOfClients(){
+
+    public Long getCountOfClients() {
         return clientRepository.count();
     }
 
 
     @Override
-    public Client save(ClientRegistrationDto registrationDto) {
-        Client client = new Client(registrationDto.getName(),
-                registrationDto.getSurname(),
-                registrationDto.getAge(),
-                bCryptPasswordEncoder.encode(registrationDto.getPassword()),
-                registrationDto.getEmail(),
-                List.of(new Role("ROLE_USER")),
-                List.of());
+    public Client save(ClientRegistrationDto clientRegistrationDto) {
+        Client client = new Client(clientRegistrationDto.getName(),
+                clientRegistrationDto.getSurname(),
+                clientRegistrationDto.getAge(),
+                bCryptPasswordEncoder.encode(clientRegistrationDto.getPassword()),
+                clientRegistrationDto.getEmail(),
+                true,
+                Set.of());
         return clientRepository.save(client);
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Client client = clientRepository.findByEmail(username);
-        if (client == null){
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Client user = clientRepository.findByEmail(email);
+        if (user == null) {
             throw new UsernameNotFoundException("Ivalid username or password.");
         }
-        return new org.springframework.security.core.userdetails.User(
-                client.getEmail(),
-                client.getPassword(),
-                mapRolesToAuthorities(client.getRoles()));
-    }
-    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
-        return  roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+
+        return new ClientDetails(user);
     }
 }

@@ -1,40 +1,41 @@
 package com.example.osk.service;
 
-import com.example.osk.model.Client;
+import com.example.osk.security.InstructorDetails;
+import com.example.osk.dto.InstructorRegistrationDto;
 import com.example.osk.model.Instructor;
-import com.example.osk.model.Role;
 import com.example.osk.repository.InstructorRepository;
-import com.example.osk.web.dto.InstructorRegistrationDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
-
-@Service
-public class InstructorServiceImpl implements InstructorService{
+@Qualifier("instructor")
+@Component
+public class InstructorServiceImpl implements InstructorService {
 
     private final InstructorRepository instructorRepository;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public InstructorServiceImpl(InstructorRepository instructorRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public InstructorServiceImpl(InstructorRepository instructorRepository) {
         this.instructorRepository = instructorRepository;
+    }
+
+    @Autowired
+    public void setbCryptPasswordEncoder(BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     public Instructor getInstructor(Long id) {
         return this.instructorRepository.findById(id).orElse(null);
     }
-    public Instructor getInstructorByName(String name) {
 
-        return this.instructorRepository.findByName(name);
+    public Instructor getInstructorByEmail(String email) {
+
+        return this.instructorRepository.findByEmail(email);
     }
 
     public List<Instructor> getAllInstructors() {
@@ -42,13 +43,15 @@ public class InstructorServiceImpl implements InstructorService{
     }
 
     public void editInstructor(Instructor instructor) {
+        instructor.setPassword(bCryptPasswordEncoder.encode(instructor.getPassword()));
         this.instructorRepository.save(instructor);
     }
 
     public void deleteInstructor(Long id) {
         this.instructorRepository.deleteById(id);
     }
-    public Long getCountOfInstructors(){
+
+    public Long getCountOfInstructors() {
         return this.instructorRepository.count();
     }
 
@@ -61,6 +64,7 @@ public class InstructorServiceImpl implements InstructorService{
                 instructorRegistrationDto.getAge(),
                 instructorRegistrationDto.getCategories(),
                 bCryptPasswordEncoder.encode(instructorRegistrationDto.getPassword()),
+                instructorRegistrationDto.getEmail(),
                 instructorRegistrationDto.getCatA(),
                 instructorRegistrationDto.getCatA_1(),
                 instructorRegistrationDto.getCatA_2(),
@@ -77,23 +81,18 @@ public class InstructorServiceImpl implements InstructorService{
                 instructorRegistrationDto.getCatDE(),
                 instructorRegistrationDto.getCatD1E(),
                 instructorRegistrationDto.getCatT(),
-                List.of(new Role("ROLE_ADMIN")),
+                true,
                 List.of());
         return instructorRepository.save(instructor);
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Instructor instructor = instructorRepository.findByName(username);
-        if (instructor == null){
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Instructor instructor = instructorRepository.findByEmail(email);
+        if (instructor == null) {
             throw new UsernameNotFoundException("Ivalid username or password.");
         }
-        return new org.springframework.security.core.userdetails.User(
-                instructor.getName(),
-                instructor.getPassword(),
-                mapRolesToAuthorities(instructor.getRoles()));
+        return new InstructorDetails(instructor);
     }
-    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
-        return  roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
-    }
+
 }

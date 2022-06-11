@@ -2,12 +2,7 @@ package com.example.osk.controller;
 
 import com.example.osk.service.ClientServiceImpl;
 import com.example.osk.service.InstructorServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,11 +19,11 @@ public class ProfileController {
 
     @GetMapping("/editProfile")
     public String getVehiclesList(Model model) {
-        String principal = SecurityContextHolder. getContext(). getAuthentication(). getName();
-        if(clientService.getClientByName(principal) != null){
-            model.addAttribute("person", clientService.getClientByName(principal));
+        String principal = SecurityContextHolder.getContext().getAuthentication().getName();
+        if(clientService.getClientByEmail(principal) != null){
+            model.addAttribute("person", clientService.getClientByEmail(principal));
         }else {
-            model.addAttribute("person", instructorService.getInstructorByName(principal));
+            model.addAttribute("person", instructorService.getInstructorByEmail(principal));
         }
         return "profile/editProfile";
     }

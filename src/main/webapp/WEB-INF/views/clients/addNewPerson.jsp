@@ -74,6 +74,7 @@
                                             <input class="form-control" type=number name="age" placeholder="uzupełnij wiek">
                                         </div>
                                     </div>
+                                    <input class="form-control" type=hidden name="password" value="user">
 
 
 
