@@ -1,0 +1,27 @@
+.primary-light-sidebar, .top-nav-bar{
+    background-color: rgba(0, 12, 26, 0.84);
+}
+.a-sidebar, .a-link-sidebar{
+    color: #f8f9fa;
+}
+.a-link-sidebar{
+    display: block;
+    padding: 0.5rem 1rem;
+}
+.a-sidebar:hover{
+    color: #007bff;
+}
+.btn-adj {
+    color: rgba(0, 12, 26, 0.84);
+    background-color: #f8f9fa;
+    border-color: rgba(0, 12, 26, 0.84);
+    box-shadow: none;
+}
+.btn-adj:hover{
+    color: #007bff;
+    border-color: #f8f9fa;
+}
+.section-border{
+    border-bottom: 1px solid #007bff;
+}
+

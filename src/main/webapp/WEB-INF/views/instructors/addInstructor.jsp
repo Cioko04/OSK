@@ -7,7 +7,6 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
     <%@include file="../dynamic/navigationMain.jspf"%>
 
     <!-- Content Wrapper. Contains page content -->
@@ -60,6 +59,12 @@
                                         <label class="col-2 col-form-label">Nazwisko</label>
                                         <div class="col-10">
                                             <input class="form-control" type="text" name="surname" placeholder="uzupełnij nazwisko">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-2 col-form-label">Email</label>
+                                        <div class="col-10">
+                                            <input class="form-control" type="text" name="email" placeholder="uzupełnij email">
                                         </div>
                                     </div>
 
@@ -210,19 +215,7 @@
 
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <strong>Projekt OSK</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> alpha 1.0
-        </div>
-    </footer>
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+    <%@include file="../dynamic/footer.jspf"%>
 </div>
 <!-- ./wrapper -->
 

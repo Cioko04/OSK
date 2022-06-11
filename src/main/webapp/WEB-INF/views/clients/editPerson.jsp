@@ -7,9 +7,7 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
     <%@include file="../dynamic/navigationMain.jspf"%>
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
 
@@ -99,9 +97,23 @@
                                 </div>
                             </div>
                         </div>
-
+                        <input
+                                type="hidden"
+                                name="email"
+                                value="${client.email}"
+                        />
+                        <input
+                                type="hidden"
+                                name="password"
+                                value="${client.password}"
+                        />
+                        <input
+                                type="hidden"
+                                name="roles"
+                                value="${client.role}"
+                        />
                     </div>
-                    <input class="btn btn-success pull-left" type="submit" value="Zapisz zmiany" id="searchButton"></input>
+                    <input class="btn btn-success pull-left" type="submit" value="Zapisz zmiany" id="searchButton"/>
 
 
                     <!-- Button to Open the Modal -->
@@ -146,19 +158,7 @@
 
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <strong>Projekt OSK</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> alpha 1.0
-        </div>
-    </footer>
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+    <%@include file="../dynamic/footer.jspf"%>
 </div>
 <!-- ./wrapper -->
 
