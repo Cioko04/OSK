@@ -12,7 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-@Qualifier("instructor")
+import java.util.regex.Pattern;
+
 @Component
 public class InstructorServiceImpl implements InstructorService {
 
@@ -43,7 +44,11 @@ public class InstructorServiceImpl implements InstructorService {
     }
 
     public void editInstructor(Instructor instructor) {
-        instructor.setPassword(bCryptPasswordEncoder.encode(instructor.getPassword()));
+        System.out.println(instructor.getPassword());
+        Pattern BCRYPT_PATTERN = Pattern.compile("\\A\\$2a?\\$\\d\\d\\$[./0-9A-Za-z]{53}");
+        if (!BCRYPT_PATTERN.matcher(instructor.getPassword()).matches()) {
+            instructor.setPassword(bCryptPasswordEncoder.encode(instructor.getPassword()));
+        }
         this.instructorRepository.save(instructor);
     }
 

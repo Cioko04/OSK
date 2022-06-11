@@ -14,123 +14,103 @@
 
         <!-- Content Header (Page header) -->
         <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
 
         <!-- Main Content -->
         <div id="content">
-
-            <%--                    <!-- Topbar -->--%>
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                <!-- Sidebar Toggle (Topbar) -->
-
-                </button>
-
-
-
-                <%--                        <!-- Topbar Navbar -->--%>
-                <ul class="navbar-nav ml-auto">
-
-                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                    <li class="nav-item dropdown no-arrow d-sm-none">
-                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <!-- Dropdown - Messages -->
-                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                            <form class="form-inline mr-auto w-100 navbar-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </li>
-
-
-
-
-                    <div class="topbar-divider d-none d-sm-block"></div>
-
-                </ul>
-
-            </nav>
-            <!-- End of Topbar -->
-
             <!-- Begin Page Content -->
             <div class="container-fluid">
                 <form method="post" action='<c:url value="/addInstructor/${instructor.id}"/>'>
                     <!-- Content Row -->
-                    <div class="row">
-                        <div class="col-xl-12 col-md-12 mb-12">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-8 col-md-12 mb-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <div class="form-group row">
-                                        <label class="col-2 col-form-label">Imię</label>
+                                        <label class="col-2 col-form-label">
+                                            <h3 class="card-title text-bold text-lg">Imię: </h3>
+                                        </label>
                                         <div class="col-10">
                                             <input class="form-control" type="text" name="name" value="${instructor.name}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label  class="col-2 col-form-label">Nazwisko</label>
+                                        <label  class="col-2 col-form-label">
+                                            <h3 class="card-title text-bold text-lg">Nazwisko: </h3>
+                                        </label>
                                         <div class="col-10">
                                             <input class="form-control" type="text" name="surname" value="${instructor.surname}">
                                         </div>
                                     </div>
-
                                     <div class="form-group row">
-                                        <label  class="col-2 col-form-label">Wiek</label>
+                                        <label  class="col-2 col-form-label">
+                                            <h3 class="card-title text-bold text-lg">Wiek: </h3>
+                                        </label>
                                         <div class="col-10">
                                             <input class="form-control" type="number" name="age" value="${instructor.age}">
                                         </div>
                                     </div>
-
                                     <div class="form-group row">
-                                        <label class="col-2 col-form-label">Opis dodatkowy</label>
+                                        <label  class="col-2 col-form-label">
+                                            <h3 class="card-title text-bold text-lg">Email: </h3>
+                                        </label>
                                         <div class="col-10">
-                                            <input class="form-control" type="text" name="description" value="${instructor.description}">
+                                            <input class="form-control" type="email" name="email" value="${instructor.email}">
                                         </div>
                                     </div>
                                     <div class="form-group">
-
                                         <div class="row">
-                                            <div class="col-3">
-                                                <p class="text-right"><label>Szkoli w zakresie kategorii:</label></p>
-                                            </div>
+                                            <label  class="col-12 col-form-label">
+                                                <h3 class="card-title text-bold text-lg">Szkoli w zakresie kategorii: </h3>
+                                            </label>
                                         </div>
                                         <div class="row">
                                             <div class="col-2">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" value="A" name="catA">
-                                                    <label class="form-check-label" >A</label>
+                                                    <input type="checkbox" class="form-check-input" value="A" name="catA"
+                                                    <c:choose>
+                                                    <c:when test="${instructor.catA != null}">
+                                                           checked
+                                                    </c:when>
+                                                    </c:choose>
+                                                    >
+                                                    <label class="form-check-label">A</label>
                                                 </div>
                                             </div>
                                             <div class="col-2">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" value="A1" name="catA_1">
+                                                    <input type="checkbox" class="form-check-input" value="A1" name="catA_1"
+                                                    <c:choose>
+                                                    <c:when test="${instructor.catA_1 != null}">
+                                                           checked
+                                                    </c:when>
+                                                    </c:choose>
+                                                    >
                                                     <label class="form-check-label">A1</label>
                                                 </div>
                                             </div>
                                             <div class="col-2">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" value="A2" name="catA_2">
+                                                    <input type="checkbox" class="form-check-input" value="A2" name="catA_2"
+                                                    <c:choose>
+                                                    <c:when test="${instructor.catA_2 != null}">
+                                                           checked
+                                                    </c:when>
+                                                    </c:choose>
+                                                    >
                                                     <label class="form-check-label">A2</label>
                                                 </div>
                                             </div>
                                             <div class="col-2">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" value="AM" name="catAM">
+                                                    <input type="checkbox" class="form-check-input" value="AM" name="catAM"
+                                                    <c:choose>
+                                                    <c:when test="${instructor.catAM != null}">
+                                                           checked
+                                                    </c:when>
+                                                    </c:choose>
+                                                    >
                                                     <label class="form-check-label">AM</label>
                                                 </div>
                                             </div>
@@ -138,19 +118,35 @@
                                         <div class="row">
                                             <div class="col-2">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" value="B" name="catB">
+                                                    <input type="checkbox" class="form-check-input" value="B" name="catB"
+                                                    <c:choose>
+                                                    <c:when test="${instructor.catB != null}">
+                                                           checked
+                                                    </c:when>
+                                                    </c:choose>
+                                                    >
                                                     <label class="form-check-label" >B</label>
                                                 </div>
                                             </div>
                                             <div class="col-2">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" value="B1" name="catB1" >
+                                                    <input type="checkbox" class="form-check-input" value="B1" name="catB1"
+                                                    <c:choose>
+                                                    <c:when test="${instructor.catB1 != null}">
+                                                           checked
+                                                    </c:when>
+                                                    </c:choose>>
                                                     <label class="form-check-label" >B1</label>
                                                 </div>
                                             </div>
                                             <div class="col-2">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" value="BE" name="catBE">
+                                                    <input type="checkbox" class="form-check-input" value="BE" name="catBE"
+                                                    <c:choose>
+                                                    <c:when test="${instructor.catBE != null}">
+                                                           checked
+                                                    </c:when>
+                                                    </c:choose>>
                                                     <label class="form-check-label" >BE</label>
                                                 </div>
                                             </div>
@@ -158,25 +154,45 @@
                                         <div class="row">
                                             <div class="col-2">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" value="C" name="catC">
+                                                    <input type="checkbox" class="form-check-input" value="C" name="catC"
+                                                    <c:choose>
+                                                    <c:when test="${instructor.catC != null}">
+                                                           checked
+                                                    </c:when>
+                                                    </c:choose>>
                                                     <label class="form-check-label" >C</label>
                                                 </div>
                                             </div>
                                             <div class="col-2">
                                                 <div class="form-check" disabled>
-                                                    <input type="checkbox" class="form-check-input" value="C1" name="catC1">
+                                                    <input type="checkbox" class="form-check-input" value="C1" name="catC1"
+                                                    <c:choose>
+                                                    <c:when test="${instructor.catC1 != null}">
+                                                           checked
+                                                    </c:when>
+                                                    </c:choose>>
                                                     <label class="form-check-label" >C1</label>
                                                 </div>
                                             </div>
                                             <div class="col-2">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" value="CE" name="catCE">
+                                                    <input type="checkbox" class="form-check-input" value="CE" name="catCE"
+                                                    <c:choose>
+                                                    <c:when test="${instructor.catCE != null}">
+                                                           checked
+                                                    </c:when>
+                                                    </c:choose>>
                                                     <label class="form-check-label" >CE</label>
                                                 </div>
                                             </div>
                                             <div class="col-2">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" value="C1E" name="catC1E">
+                                                    <input type="checkbox" class="form-check-input" value="C1E" name="catC1E"
+                                                    <c:choose>
+                                                    <c:when test="${instructor.catC1E != null}">
+                                                           checked
+                                                    </c:when>
+                                                    </c:choose>>
                                                     <label class="form-check-label" >C1E</label>
                                                 </div>
                                             </div>
@@ -186,13 +202,23 @@
                                         <div class="row">
                                             <div class="col-2">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" value="D" name="catD">
+                                                    <input type="checkbox" class="form-check-input" value="D" name="catD"
+                                                    <c:choose>
+                                                    <c:when test="${instructor.catD != null}">
+                                                           checked
+                                                    </c:when>
+                                                    </c:choose>>
                                                     <label class="form-check-label" >D</label>
                                                 </div>
                                             </div>
                                             <div class="col-2">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" value="D1" name="catD1">
+                                                    <input type="checkbox" class="form-check-input" value="D1" name="catD1"
+                                                    <c:choose>
+                                                    <c:when test="${instructor.catD1 != null}">
+                                                           checked
+                                                    </c:when>
+                                                    </c:choose>>
                                                     <label class="form-check-label" >D1</label>
                                                 </div>
                                             </div>
@@ -204,7 +230,12 @@
                                             </div>
                                             <div class="col-2">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" value="D1E" name="catD1E">
+                                                    <input type="checkbox" class="form-check-input" value="D1E" name="catD1E"
+                                                    <c:choose>
+                                                    <c:when test="${instructor.catD1E != null}">
+                                                           checked
+                                                    </c:when>
+                                                    </c:choose>>
                                                     <label class="form-check-label" >D1E</label>
                                                 </div>
                                             </div>
@@ -213,25 +244,46 @@
                                         <div class="row">
                                             <div class="col-2">
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" value="T" name="catT">
+                                                    <input type="checkbox" class="form-check-input" value="T" name="catT"
+                                                    <c:choose>
+                                                    <c:when test="${instructor.catT != null}">
+                                                           checked
+                                                    </c:when>
+                                                    </c:choose>>
                                                     <label class="form-check-label" >T</label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <input
+                                            type="hidden"
+                                            name="password"
+                                            value="${instructor.password}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="role"
+                                            value="${instructor.role}"
+                                    />
+                                    <input
+                                            type="hidden"
+                                            name="enabled"
+                                            value="${true}"
+                                    />
+
+                                    <p class="float-right m-1">
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+                                            Usuń
+                                        </button>
+                                    </p>
+                                    <p class="float-right m-1">
+                                        <input class="btn btn-primary pull-left" type="submit" value="Zapisz zmiany" id="searchButton"/>
+                                    </p>
 
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <input class="btn btn-success pull-left" type="submit" value="Zapisz zmiany" id="searchButton"></input>
-
-
-                    <!-- Button to Open the Modal -->
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-                        Usuń
-                    </button>
                 </form>
                 <!-- The Modal -->
                 <div class="modal" id="myModal">
@@ -265,6 +317,8 @@
             <!-- /.container-fluid -->
 
         </div>
+
+
         <!-- End of Main Content -->
 
 
