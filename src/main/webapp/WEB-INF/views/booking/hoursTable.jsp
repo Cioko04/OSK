@@ -219,7 +219,8 @@
                             <tbody>
                         </table>
 
-                        <form method="post" action='<c:url value="/acceptBooking/${instructorId}/8_9/${day.getCertainDay()}"/>'>
+                        <form method="post"
+                              action='<c:url value="/acceptBooking/${instructorId}/8_9/${day.getCertainDay()}"/>'>
                             <table class="table table-sm table-bordered text-center">
                                 <c:forEach items="${sevenWorkDays}" var="day">
                                     <tr>
@@ -251,7 +252,7 @@
                                             <c:when test="${day.check9amAvailability() == true}">
 
                                                 <td>
-                                                    <a href=href='<c:url value="/acceptBooking/${instructorId}/9_10/${day.getCertainDay()}"/>'
+                                                    <a href='<c:url value="/acceptBooking/${instructorId}/9_10/${day.getCertainDay()}"/>'
                                                        class="btn btn-info active" role="button"
                                                        data-bs-toggle="button" aria-pressed="true"><span
                                                             class="timeSlot">09:00
@@ -272,7 +273,8 @@
                                             <c:when test="${day.check10amAvailability() == true}">
 
                                                 <td>
-                                                    <a href=href='<c:url value="/acceptBooking/${instructorId}/10_11/${day.getCertainDay()}"/>' class="btn btn-info active" role="button"
+                                                    <a href='<c:url value="/acceptBooking/${instructorId}/10_11/${day.getCertainDay()}"/>'
+                                                       class="btn btn-info active" role="button"
                                                        data-bs-toggle="button" aria-pressed="true"><span
                                                             class="timeSlot">10:00
                                                 - 11:00</span></a>
@@ -292,7 +294,7 @@
                                             <c:when test="${day.check11amAvailability() == true}">
 
                                                 <td>
-                                                    <a href=href='<c:url value="/acceptBooking/${instructorId}/11_12/${day.getCertainDay()}"/>'
+                                                    <a href='<c:url value="/acceptBooking/${instructorId}/11_12/${day.getCertainDay()}"/>'
                                                        class="btn btn-info active" role="button"
                                                        data-bs-toggle="button" aria-pressed="true"><span
                                                             class="timeSlot">11:00
@@ -313,7 +315,8 @@
                                             <c:when test="${day.check13amAvailability() == true}">
 
                                                 <td>
-                                                    <a href=href='<c:url value="/acceptBooking/${instructorId}/13_14/${day.getCertainDay()}"/>' class="btn btn-info active" role="button"
+                                                    <a href='<c:url value="/acceptBooking/${instructorId}/13_14/${day.getCertainDay()}"/>'
+                                                       class="btn btn-info active" role="button"
                                                        data-bs-toggle="button" aria-pressed="true"><span
                                                             class="timeSlot">13:00
                                                 - 14:00</span></a>
@@ -333,7 +336,8 @@
                                             <c:when test="${day.check14amAvailability() == true}">
 
                                                 <td>
-                                                    <a href=href='<c:url value="/acceptBooking/${instructorId}/14_15/${day.getCertainDay()}"/>' class="btn btn-info active" role="button"
+                                                    <a href='<c:url value="/acceptBooking/${instructorId}/14_15/${day.getCertainDay()}"/>'
+                                                       class="btn btn-info active" role="button"
                                                        data-bs-toggle="button" aria-pressed="true"><span
                                                             class="timeSlot">14:00
                                                 - 15:00</span></a>
@@ -353,7 +357,8 @@
                                             <c:when test="${day.check15amAvailability() == true}">
 
                                                 <td>
-                                                    <a href=href='<c:url value="/acceptBooking/${instructorId}/15_16/${day.getCertainDay()}"/>' class="btn btn-info active" role="button"
+                                                    <a href='<c:url value="/acceptBooking/${instructorId}/15_16/${day.getCertainDay()}"/>'
+                                                       class="btn btn-info active" role="button"
                                                        data-bs-toggle="button" aria-pressed="true"><span
                                                             class="timeSlot">15:00
                                                 - 16:00</span></a>
@@ -373,7 +378,8 @@
                                             <c:when test="${day.check16amAvailability() == true}">
 
                                                 <td>
-                                                    <a href=href='<c:url value="/acceptBooking/${instructorId}/16_17/${day.getCertainDay()}"/>' class="btn btn-info active" role="button"
+                                                    <a href='<c:url value="/acceptBooking/${instructorId}/16_17/${day.getCertainDay()}"/>'
+                                                       class="btn btn-info active" role="button"
                                                        data-bs-toggle="button" aria-pressed="true"><span
                                                             class="timeSlot">16:00
                                                 - 17:00</span></a>
@@ -392,10 +398,12 @@
                                     </tr>
                                 </c:forEach>
                             </table>
-<%--                        </form>--%>
-                        <td><a href='<c:url value="/timeslots/${currentPage - 1}/${instructorId}"/>'>Previous page</a>
-                        </td>
-                        <td><a href='<c:url value="/timeslots/${currentPage + 1}/${instructorId}"/>'>Next page</a></td>
+                            <%--                        </form>--%>
+                            <td><a href='<c:url value="/timeslots/${currentPage - 1}/${instructorId}"/>'>Previous
+                                page</a>
+                            </td>
+                            <td><a href='<c:url value="/timeslots/${currentPage + 1}/${instructorId}"/>'>Next page</a>
+                            </td>
                     </div>
                 </div>
             </section>
