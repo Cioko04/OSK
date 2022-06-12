@@ -70,13 +70,14 @@ public class Instructor {
     private boolean enabled;
     private String role;
 
-
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "instructor_client",
             joinColumns = @JoinColumn(name = "instructor_id"),
             inverseJoinColumns = @JoinColumn(name = "client_id"))
     private Set<Client> allClients = new HashSet<>();
 
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH, mappedBy = "instructor")
+    private Set<TimeSlot> allTimeSlots = new HashSet<>();
 
     public Instructor(String name, String surname, String description, Integer age, String categories, String password, String email, String catA, String catA_1, String catA_2, String catAM, String catB, String catB1, String catBE, String catC, String catC1, String catCE, String catC1E, String catD, String catD1, String catDE, String catD1E, String catT, boolean enabled, List<Client> allClients) {
         this.name = name;
@@ -105,5 +106,27 @@ public class Instructor {
         this.enabled = enabled;
         this.role = "ROLE_ADMIN";
         this.allClients = new HashSet<>(allClients);
+    }
+
+    public boolean categoryChecker(String category) {
+        switch (category) {
+            case "A": return !(this.catA == null);
+            case "A1": return !(this.catA_1 == null);
+            case "A2": return !(this.catA_2 == null);
+            case "AM": return !(this.catAM == null);
+            case "B": return !(this.catB == null);
+            case "B1": return !(this.catB1 == null);
+            case "BE": return !(this.catBE == null);
+            case "C": return !(this.catC == null);
+            case "C1": return !(this.catC1 == null);
+            case "CE": return !(this.catCE == null);
+            case "C1E": return !(this.catC1E == null);
+            case "D": return !(this.catD == null);
+            case "D1": return !(this.catD1 == null);
+            case "DE": return !(this.catDE == null);
+            case "D1E": return !(this.catD1E == null);
+            case "T": return !(this.catT == null);
+            default: return false;
+        }
     }
 }

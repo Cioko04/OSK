@@ -4,8 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -27,4 +28,7 @@ public class Vehicle {
     private String colour;
     @Column(length = 25)
     private String department;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH, mappedBy = "timeslot")
+    private Set<TimeSlot> allTimeSlots = new HashSet<>();
 }

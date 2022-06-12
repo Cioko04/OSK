@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
-
-import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class InstructorController {
@@ -33,12 +32,23 @@ public class InstructorController {
         return "instructors/instructorsList";
     }
 
+    @GetMapping("/choosingInstructor/{category}")
+    public String getCertainInstructorsList(@PathVariable("category") String category, Model model) {
+        List<Instructor> allCertainCategoryInstructors = this.instructorService.getAllInstructors()
+                        .stream()
+                        .filter(instructor -> instructor.categoryChecker(category))
+                        .collect(Collectors.toList());
+        System.out.println(allCertainCategoryInstructors);
+        model.addAttribute("allCertainCategoryInstructors", allCertainCategoryInstructors);
+
+        return "instructors/choosingInstructor";
+    }
+
     // getting the view of adding a new instructor
     @GetMapping("/addInstructor")
     public String getAddInstructorView() {
         return "instructors/addInstructor";
     }
-
 
     //getting the view of editing a certain instructor with model of that instructor
     @GetMapping("/editInstructor/{id}")
@@ -68,9 +78,4 @@ public class InstructorController {
         this.instructorService.deleteInstructor(id);
         return new RedirectView("/instructors");
     }
-
-
-
-
-
 }
