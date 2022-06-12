@@ -1,13 +1,11 @@
 package com.example.osk.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import javax.persistence.*;
 
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "timeslots")
@@ -19,7 +17,7 @@ public class TimeSlot {
 
     private boolean isBusy = false;
 
-    private String timeslot;
+    private String timeslot; //  7-8
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "workday_id")
@@ -36,27 +34,4 @@ public class TimeSlot {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "vehicle_id")
     private Vehicle vehicle;
-
-    public TimeSlot(String timeslot, boolean isBusy) {
-        this.timeslot = timeslot;
-        this.isBusy = isBusy;
-    }
-
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinTable(name = "client_id")
-//    private Client client;
-//
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "instructor_id")
-//    private Instructor instructor;
-
-
-    // to check available of timeslot\realization of lessons\payment status\ cancellation of a lesson
-    // max hours for one student
-    // ROla 1 Client
-    // Rola 2 Instructor
-    // Rola 3 Admin
-    // Guest
-    // common info about client from admin side
-
 }

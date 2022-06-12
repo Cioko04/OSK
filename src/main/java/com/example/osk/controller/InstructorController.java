@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
-
 import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -40,8 +39,10 @@ public class InstructorController {
                         .stream()
                         .filter(instructor -> instructor.categoryChecker(category))
                         .collect(Collectors.toList());
-        model.addAttribute("instructor", allCertainCategoryInstructors);
-        return "instructors/instructorsList";
+        System.out.println(allCertainCategoryInstructors);
+        model.addAttribute("allCertainCategoryInstructors", allCertainCategoryInstructors);
+
+        return "instructors/choosingInstructor";
     }
 
     // getting the view of adding a new instructor
@@ -72,20 +73,10 @@ public class InstructorController {
         return new RedirectView("/");
     }
 
-    //confirming of removing a certain instructor on page from OSC and redirecting a view to /instructors
-//    @PostMapping("/editInstructor/{id}")
-//    public RedirectView removeInstructor(@PathVariable("id") Long id) {
-//        this.instructorService.deleteInstructor(id);
-//        return new RedirectView("/instructors");
-//    }
-
     // save edit client
     @PostMapping("/addInstructor/{id}")
     public RedirectView postEditClient(@Valid @ModelAttribute Instructor newInstructor, @PathVariable("id") Long id) {
         instructorService.editInstructor(newInstructor);
         return new RedirectView("/instructors");
     }
-
-
-
 }

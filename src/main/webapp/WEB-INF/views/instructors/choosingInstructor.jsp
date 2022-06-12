@@ -1,4 +1,3 @@
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
@@ -9,29 +8,7 @@
 
 <%@include file="../dynamic/link.jspf" %>
 <%@include file="../dynamic/navigationMain.jspf" %>
-<head>
-    <style>
-        span.timeSlot {
-            font-size: x-small;
-        }
 
-        table, th, td {
-            border: 1px solid black;
-        }
-
-        table {
-            display: table;
-        }
-
-        table tr {
-            display: table-cell;
-        }
-
-        table tr td {
-            display: block;
-        }
-    </style>
-</head>
 <body class="hold-transition dark-mode layout-fixed layout-navbar-fixed layout-footer-fixed">
 
 <div class="wrapper">
@@ -195,67 +172,37 @@
                                         <table class="table action-panel table-bordered" id="dataTable" cellspacing="0">
                                             <thead>
                                             <tr>
-                                                <th>Id</th>
                                                 <th>Imię</th>
                                                 <th>Nazwisko</th>
                                                 <th>Wiek</th>
                                                 <th>Opis</th>
-                                                <th>Kategorie</th>
-                                                <th>Akcja</th>
                                             </tr>
                                             </thead>
                                             <tfoot>
                                             <tr>
-                                                <th>Id</th>
+
                                                 <th>Imię</th>
                                                 <th>Nazwisko</th>
                                                 <th>Wiek</th>
                                                 <th>Opis</th>
-                                                <th>Kategorie</th>
-                                                <th>Akcja</th>
+
                                             </tr>
                                             </tfoot>
                                             <tbody>
 
-                                            <c:forEach items="${instructor}" var="title">
+                                            <c:forEach items="${allCertainCategoryInstructors}" var="instructor">
                                                 <tr>
-                                                    <td>${title.id}</td>
-                                                    <td>${title.name}</td>
-                                                    <td>${title.surname}</td>
-                                                    <td>${title.age}</td>
-                                                    <td>${title.description}</td>
-                                                    <td>${title.catA} ${title.catA_1} ${title.catA_2} ${title.catAM}
-                                                            ${title.catB} ${title.catB1} ${title.catBE}
-                                                            ${title.catC} ${title.catC1} ${title.catCE} ${title.catC1E}
-                                                            ${title.catD} ${title.catD1} ${title.catDE} ${title.catD1E}
-                                                            ${title.catT}</td>
-                                                    <td><a href='<c:url value="/editInstructor/${title.id}"/>'
-                                                           class="btn-right btn btn-primary" role="button">Edytuj</a>
+
+                                                    <td>${instructor.name}</td>
+                                                    <td>${instructor.surname}</td>
+                                                    <td>${instructor.age}</td>
+                                                    <td>${instructor.description}</td>
+
+                                                    <td><a href='<c:url value="/instructorTimeSlots/${instructor.id}"/>'
+                                                           class="btn-right btn btn-primary" role="button">Wybierz</a>
                                                     </td>
                                                 </tr>
                                             </c:forEach>
-
-                                            <!-- The Modal -->
-                                            <div class="modal" id="umiejetnosci">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-
-                                                        <!-- Modal Header -->
-
-                                                        <!-- Modal body -->
-                                                        <div class="modal-body">
-
-                                                            <!-- Project Card Example -->
-
-                                                        </div>
-
-                                                        <!-- Modal footer -->
-
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                             </tbody>
                                         </table>
 

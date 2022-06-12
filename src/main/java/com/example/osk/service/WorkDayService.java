@@ -21,6 +21,10 @@ public class WorkDayService {
         return this.workDayRepository.findAll();
     }
 
+    public WorkDay findWorkDayByDate(LocalDate certainDate) {
+        return this.workDayRepository.findWorkDayObjectByDate(certainDate);
+    }
+
     public Long getQuantityOfWorkDays() {
         return this.workDayRepository.count();
     }

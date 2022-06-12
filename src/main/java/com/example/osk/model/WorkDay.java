@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.List;
@@ -42,6 +41,28 @@ public class WorkDay {
         this.the14amAvailable = slotAvailability;
         this.the15amAvailable = slotAvailability;
         this.the16amAvailable = slotAvailability;
+    }
+
+    public void setInactivityOfSlot(String certainTimeSlot) {
+
+        switch (certainTimeSlot) {
+            case "8_9": this.the8amAvailable = false;
+                break;
+            case "9_10": this.the9amAvailable = false;
+                break;
+            case "10_11": this.the10amAvailable = false;
+                break;
+            case "11_12": this.the11amAvailable = false;
+                break;
+            case "13_14": this.the13amAvailable = false;
+                break;
+            case "14_15": this.the14amAvailable = false;
+                break;
+            case "15_16": this.the15amAvailable = false;
+                break;
+            case "16_17": this.the16amAvailable = false;
+                break;
+        }
     }
 
     public boolean check8amAvailability() {

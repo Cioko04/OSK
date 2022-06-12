@@ -31,11 +31,6 @@
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
-
-
-                <!-- Page Heading -->
-
-                <!-- DataTales Example -->
                 <div class="card shadow mb-4">
 
                     <div class="card-body">
@@ -67,7 +62,7 @@
 
                                 <c:forEach items="${instructor}" var="title">
                                     <tr>
-                                        <td>${title.id}</td>
+                                        <td>${tittle.id}</td>
                                         <td>${title.name}</td>
                                         <td>${title.surname}</td>
                                         <td>${title.age}</td>
@@ -82,37 +77,11 @@
                                         </td>
                                     </tr>
                                 </c:forEach>
-
-                                <!-- The Modal -->
-                                <div class="modal" id="umiejetnosci">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-
-                                            <!-- Modal Header -->
-
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
-
-                                                <!-- Project Card Example -->
-
-                                            </div>
-
-                                            <!-- Modal footer -->
-
-
-                                        </div>
-                                    </div>
-                                </div>
-
                                 </tbody>
                             </table>
-
-
                         </div>
                     </div>
                 </div>
-
-
             </div>
 
             <div class="card-header py-3">

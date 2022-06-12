@@ -1,4 +1,3 @@
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
@@ -10,36 +9,36 @@
 <%@include file="../dynamic/link.jspf" %>
 <%@include file="../dynamic/navigationMain.jspf" %>
 <head>
-<style>
-    span.timeSlot {
-        font-size: x-small;
-    }
+    <style>
+        span.timeSlot {
+            font-size: x-small;
+        }
 
-    table, th, td {
-        border: 1px solid black;
-    }
+        table, th, td {
+            border: 1px solid black;
+        }
 
-    table {
-        display: table;
-    }
+        table {
+            display: table;
+        }
 
-    table tr {
-        display: table-cell;
-    }
+        table tr {
+            display: table-cell;
+        }
 
-    table tr td {
-        display: block;
-    }
-</style>
+        table tr td {
+            display: block;
+        }
+    </style>
 </head>
 <body class="hold-transition dark-mode layout-fixed layout-navbar-fixed layout-footer-fixed">
 
 <div class="wrapper">
 
     <!-- Preloader -->
-<%--    <div class="preloader flex-column justify-content-center align-items-center">--%>
-<%--        <img class="animation__wobble" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">--%>
-<%--    </div>--%>
+    <%--    <div class="preloader flex-column justify-content-center align-items-center">--%>
+    <%--        <img class="animation__wobble" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">--%>
+    <%--    </div>--%>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand navbar-dark">
@@ -190,195 +189,213 @@
                             <thead>
                             <tr style="width: 14.28%">
                                 <td><span class="timeSlot">${sevenWorkDays.get(0).certainDay}</span>
-                                <span class="timeSlot">${sevenWorkDays.get(0).certainDay.dayOfWeek}</span></td>
+                                    <span class="timeSlot">${sevenWorkDays.get(0).certainDay.dayOfWeek}</span></td>
                             </tr>
                             <tr style="width: 14.28%">
                                 <td><span class="timeSlot">${sevenWorkDays.get(1).certainDay}</span>
-                                <span class="timeSlot">${sevenWorkDays.get(1).certainDay.dayOfWeek}</span></td>
+                                    <span class="timeSlot">${sevenWorkDays.get(1).certainDay.dayOfWeek}</span></td>
                             </tr>
                             <tr style="width: 14.28%">
                                 <td><span class="timeSlot">${sevenWorkDays.get(2).certainDay}</span>
-                                <span class="timeSlot">${sevenWorkDays.get(2).certainDay.dayOfWeek}</span></td>
+                                    <span class="timeSlot">${sevenWorkDays.get(2).certainDay.dayOfWeek}</span></td>
                             </tr>
                             <tr style="width: 14.28%">
                                 <td><span class="timeSlot">${sevenWorkDays.get(3).certainDay}</span>
-                                <span class="timeSlot">${sevenWorkDays.get(3).certainDay.dayOfWeek}</span></td>
+                                    <span class="timeSlot">${sevenWorkDays.get(3).certainDay.dayOfWeek}</span></td>
                             </tr>
                             <tr style="width: 14.28%">
                                 <td><span class="timeSlot">${sevenWorkDays.get(4).certainDay}</span>
-                                <span class="timeSlot">${sevenWorkDays.get(4).certainDay.dayOfWeek}</span></td>
+                                    <span class="timeSlot">${sevenWorkDays.get(4).certainDay.dayOfWeek}</span></td>
                             </tr>
                             <tr style="width: 14.28%">
                                 <td><span class="timeSlot">${sevenWorkDays.get(5).certainDay}</span>
-                                <span class="timeSlot">${sevenWorkDays.get(5).certainDay.dayOfWeek}</span></td>
+                                    <span class="timeSlot">${sevenWorkDays.get(5).certainDay.dayOfWeek}</span></td>
                             </tr>
                             <tr style="width: 14.28%">
                                 <td><span class="timeSlot">${sevenWorkDays.get(6).certainDay}</span>
-                                <span class="timeSlot">${sevenWorkDays.get(6).certainDay.dayOfWeek}</span></td>
+                                    <span class="timeSlot">${sevenWorkDays.get(6).certainDay.dayOfWeek}</span></td>
                             </tr>
                             </thead>
                             <tbody>
                         </table>
-                        <table class="table table-sm table-bordered text-center">
-                            <c:forEach items="${sevenWorkDays}" var="day">
-                                <tr>
-                                    <c:choose>
-                                        <c:when test="${day.check8amAvailability() == true}">
 
-                                            <td>
-                                                <a href="#" class="btn btn-info active" role="button"
-                                                   data-bs-toggle="button" aria-pressed="true"><span class="timeSlot">08:00
+                        <form method="post" action='<c:url value="/acceptBooking/${instructorId}/8_9/${day.getCertainDay()}"/>'>
+                            <table class="table table-sm table-bordered text-center">
+                                <c:forEach items="${sevenWorkDays}" var="day">
+                                    <tr>
+                                        <c:choose>
+                                            <c:when test="${day.check8amAvailability() == true}">
+
+                                                <td>
+                                                    <a href='<c:url value="/acceptBooking/${instructorId}/8_9/${day.getCertainDay()}"/>'
+                                                       class="btn btn-info active" role="button"
+                                                       data-bs-toggle="button" aria-pressed="true"><span
+                                                            class="timeSlot">08:00
                                                 - 09:00</span></a>
-                                            </td>
+                                                </td>
 
-                                        </c:when>
-                                        <c:otherwise>
 
-                                            <td class="text-info">
-                                                <a href="#" class="btn btn-secondary disabled" tabindex="-1"
-                                                   role="button" data-bs-toggle="button"><span class="timeSlot">08:00 - 09:00</span></a>
-                                            </td>
+                                            </c:when>
+                                            <c:otherwise>
 
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${day.check9amAvailability() == true}">
+                                                <td class="text-info">
+                                                    <a class="btn btn-secondary disabled"
+                                                       tabindex="-1"
+                                                       role="button" data-bs-toggle="button"><span class="timeSlot">08:00
+                                                    - 09:00</span></a>
+                                                </td>
 
-                                            <td>
-                                                <a href="#" class="btn btn-info active" role="button"
-                                                   data-bs-toggle="button" aria-pressed="true"><span class="timeSlot">09:00
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:choose>
+                                            <c:when test="${day.check9amAvailability() == true}">
+
+                                                <td>
+                                                    <a href=href='<c:url value="/acceptBooking/${instructorId}/9_10/${day.getCertainDay()}"/>'
+                                                       class="btn btn-info active" role="button"
+                                                       data-bs-toggle="button" aria-pressed="true"><span
+                                                            class="timeSlot">09:00
                                                 - 10:00</span></a>
-                                            </td>
+                                                </td>
 
-                                        </c:when>
-                                        <c:otherwise>
+                                            </c:when>
+                                            <c:otherwise>
 
-                                            <td class="text-info">
-                                                <a href="#" class="btn btn-secondary disabled" tabindex="-1"
-                                                   role="button" data-bs-toggle="button"><span class="timeSlot">09:00 - 10:00</span></a>
-                                            </td>
+                                                <td class="text-info">
+                                                    <a class="btn btn-secondary disabled" tabindex="-1"
+                                                       role="button" data-bs-toggle="button"><span class="timeSlot">09:00 - 10:00</span></a>
+                                                </td>
 
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${day.check10amAvailability() == true}">
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:choose>
+                                            <c:when test="${day.check10amAvailability() == true}">
 
-                                            <td>
-                                                <a href="#" class="btn btn-info active" role="button"
-                                                   data-bs-toggle="button" aria-pressed="true"><span class="timeSlot">10:00
+                                                <td>
+                                                    <a href=href='<c:url value="/acceptBooking/${instructorId}/10_11/${day.getCertainDay()}"/>' class="btn btn-info active" role="button"
+                                                       data-bs-toggle="button" aria-pressed="true"><span
+                                                            class="timeSlot">10:00
                                                 - 11:00</span></a>
-                                            </td>
+                                                </td>
 
-                                        </c:when>
-                                        <c:otherwise>
+                                            </c:when>
+                                            <c:otherwise>
 
-                                            <td class="text-info">
-                                                <a href="#" class="btn btn-secondary disabled" tabindex="-1"
-                                                   role="button" data-bs-toggle="button"><span class="timeSlot">10:00 - 11:00</span></a>
-                                            </td>
+                                                <td class="text-info">
+                                                    <a class="btn btn-secondary disabled" tabindex="-1"
+                                                       role="button" data-bs-toggle="button"><span class="timeSlot">10:00 - 11:00</span></a>
+                                                </td>
 
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${day.check11amAvailability() == true}">
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:choose>
+                                            <c:when test="${day.check11amAvailability() == true}">
 
-                                            <td>
-                                                <a href="#" class="btn btn-info active" role="button"
-                                                   data-bs-toggle="button" aria-pressed="true"><span class="timeSlot">11:00
+                                                <td>
+                                                    <a href=href='<c:url value="/acceptBooking/${instructorId}/11_12/${day.getCertainDay()}"/>'
+                                                       class="btn btn-info active" role="button"
+                                                       data-bs-toggle="button" aria-pressed="true"><span
+                                                            class="timeSlot">11:00
                                                 - 12:00</span></a>
-                                            </td>
+                                                </td>
 
-                                        </c:when>
-                                        <c:otherwise>
+                                            </c:when>
+                                            <c:otherwise>
 
-                                            <td class="text-info">
-                                                <a href="#" class="btn btn-secondary disabled" tabindex="-1"
-                                                   role="button" data-bs-toggle="button"><span class="timeSlot">11:00 - 12:00</span></a>
-                                            </td>
+                                                <td class="text-info">
+                                                    <a class="btn btn-secondary disabled" tabindex="-1"
+                                                       role="button" data-bs-toggle="button"><span class="timeSlot">11:00 - 12:00</span></a>
+                                                </td>
 
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${day.check13amAvailability() == true}">
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:choose>
+                                            <c:when test="${day.check13amAvailability() == true}">
 
-                                            <td>
-                                                <a href="#" class="btn btn-info active" role="button"
-                                                   data-bs-toggle="button" aria-pressed="true"><span class="timeSlot">13:00
+                                                <td>
+                                                    <a href=href='<c:url value="/acceptBooking/${instructorId}/13_14/${day.getCertainDay()}"/>' class="btn btn-info active" role="button"
+                                                       data-bs-toggle="button" aria-pressed="true"><span
+                                                            class="timeSlot">13:00
                                                 - 14:00</span></a>
-                                            </td>
+                                                </td>
 
-                                        </c:when>
-                                        <c:otherwise>
+                                            </c:when>
+                                            <c:otherwise>
 
-                                            <td class="text-info">
-                                                <a href="#" class="btn btn-secondary disabled" tabindex="-1"
-                                                   role="button" data-bs-toggle="button"><span class="timeSlot">13:00 - 14:00</span></a>
-                                            </td>
+                                                <td class="text-info">
+                                                    <a class="btn btn-secondary disabled" tabindex="-1"
+                                                       role="button" data-bs-toggle="button"><span class="timeSlot">13:00 - 14:00</span></a>
+                                                </td>
 
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${day.check14amAvailability() == true}">
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:choose>
+                                            <c:when test="${day.check14amAvailability() == true}">
 
-                                            <td>
-                                                <a href="#" class="btn btn-info active" role="button"
-                                                   data-bs-toggle="button" aria-pressed="true"><span class="timeSlot">14:00
+                                                <td>
+                                                    <a href=href='<c:url value="/acceptBooking/${instructorId}/14_15/${day.getCertainDay()}"/>' class="btn btn-info active" role="button"
+                                                       data-bs-toggle="button" aria-pressed="true"><span
+                                                            class="timeSlot">14:00
                                                 - 15:00</span></a>
-                                            </td>
+                                                </td>
 
-                                        </c:when>
-                                        <c:otherwise>
+                                            </c:when>
+                                            <c:otherwise>
 
-                                            <td class="text-info">
-                                                <a href="#" class="btn btn-secondary disabled" tabindex="-1"
-                                                   role="button" data-bs-toggle="button"><span class="timeSlot">14:00 - 15:00</span></a>
-                                            </td>
+                                                <td class="text-info">
+                                                    <a class="btn btn-secondary disabled" tabindex="-1"
+                                                       role="button" data-bs-toggle="button"><span class="timeSlot">14:00 - 15:00</span></a>
+                                                </td>
 
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${day.check15amAvailability() == true}">
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:choose>
+                                            <c:when test="${day.check15amAvailability() == true}">
 
-                                            <td>
-                                                <a href="#" class="btn btn-info active" role="button"
-                                                   data-bs-toggle="button" aria-pressed="true"><span class="timeSlot">15:00
+                                                <td>
+                                                    <a href=href='<c:url value="/acceptBooking/${instructorId}/15_16/${day.getCertainDay()}"/>' class="btn btn-info active" role="button"
+                                                       data-bs-toggle="button" aria-pressed="true"><span
+                                                            class="timeSlot">15:00
                                                 - 16:00</span></a>
-                                            </td>
+                                                </td>
 
-                                        </c:when>
-                                        <c:otherwise>
+                                            </c:when>
+                                            <c:otherwise>
 
-                                            <td class="text-info">
-                                                <a href="#" class="btn btn-secondary disabled" tabindex="-1"
-                                                   role="button" data-bs-toggle="button"><span class="timeSlot">15:00 - 16:00</span></a>
-                                            </td>
+                                                <td class="text-info">
+                                                    <a class="btn btn-secondary disabled" tabindex="-1"
+                                                       role="button" data-bs-toggle="button"><span class="timeSlot">15:00 - 16:00</span></a>
+                                                </td>
 
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${day.check16amAvailability() == true}">
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:choose>
+                                            <c:when test="${day.check16amAvailability() == true}">
 
-                                            <td>
-                                                <a href="#" class="btn btn-info active" role="button"
-                                                   data-bs-toggle="button" aria-pressed="true"><span class="timeSlot">16:00
+                                                <td>
+                                                    <a href=href='<c:url value="/acceptBooking/${instructorId}/16_17/${day.getCertainDay()}"/>' class="btn btn-info active" role="button"
+                                                       data-bs-toggle="button" aria-pressed="true"><span
+                                                            class="timeSlot">16:00
                                                 - 17:00</span></a>
-                                            </td>
+                                                </td>
 
-                                        </c:when>
-                                        <c:otherwise>
+                                            </c:when>
+                                            <c:otherwise>
 
-                                            <td class="text-info">
-                                                <a href="#" class="btn btn-secondary disabled" tabindex="-1"
-                                                   role="button" data-bs-toggle="button"><span class="timeSlot">16:00 - 17:00</span></a>
-                                            </td>
+                                                <td class="text-info">
+                                                    <a class="btn btn-secondary disabled" tabindex="-1"
+                                                       role="button" data-bs-toggle="button"><span class="timeSlot">16:00 - 17:00</span></a>
+                                                </td>
 
-                                        </c:otherwise>
-                                    </c:choose>
-                                </tr>
-                            </c:forEach>
-                        </table>
-                        <td><a href='<c:url value="/timeslots/${currentPage - 1}"/>'>Previous page</a></td>
-                        <td><a href='<c:url value="/timeslots/${currentPage + 1}"/>'>Next page</a></td>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </tr>
+                                </c:forEach>
+                            </table>
+<%--                        </form>--%>
+                        <td><a href='<c:url value="/timeslots/${currentPage - 1}/${instructorId}"/>'>Previous page</a>
+                        </td>
+                        <td><a href='<c:url value="/timeslots/${currentPage + 1}/${instructorId}"/>'>Next page</a></td>
                     </div>
                 </div>
             </section>
@@ -401,48 +418,33 @@
             <b></b>
         </div>
     </footer>
-
     <!-- ./wrapper -->
 
-    <!-- REQUIRED SCRIPTS -->
-    <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- overlayScrollbars -->
-    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.js"></script>
+    <script>
+        function testFunction() {
 
-    <!-- PAGE PLUGINS -->
-    <!-- jQuery Mapael -->
-    <script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-    <script src="plugins/raphael/raphael.min.js"></script>
-    <script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
-    <script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
-    <!-- ChartJS -->
-    <script src="plugins/chart.js/Chart.min.js"></script>
+        }
+    </script>
 
-    <!-- AdminLTE for demo purposes -->
-    <script src="dist/js/demo.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="dist/js/pages/dashboard2.js"></script>
+    <script>
+        function submitForm(x) {
+            if (x.id == 'b1') {
+                document.getElementById('hid1').value = 'button1action';
+            } else if (x.id == 'b2') {
+                document.getElementById('hid1').value = 'button2action';
+
+            } else {
+                document.getElementById('hid1').value = 'button3action';
+            }
+            //alert(document.getElementById('hid1').value);
+            document.forms[0].submit();
+        }
+
+    </script>
     </section>
 </div>
-<%@include file="../dynamic/javaScript.jspf" %>
-<script src="js/datatables/jquery.dataTables.js" type="text/javascript"></script>
-<script src="js/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
-<script type="text/javascript">
-    $(function () {
-        $("#table1").dataTable({
-            "iDisplayLength": 3,
-            "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]]
-        });
-    });
-</script>
-<%
-    Long temporaryPageHolder = (Long) session.getAttribute("defaultPage");
 
-%>
+<%@include file="../dynamic/javaScript.jspf" %>
+
 </body>
 </html>

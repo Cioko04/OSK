@@ -100,7 +100,7 @@
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                            <a href='<c:url value="/timeslots/1"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href='<c:url value="/choosingInstructor/AM"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
@@ -113,7 +113,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href='<c:url value="/choosingInstructor/A1"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
@@ -127,7 +127,7 @@
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href='<c:url value="/choosingInstructor/A2"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
@@ -140,7 +140,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href='<c:url value="/choosingInstructor/A"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
@@ -152,7 +152,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href='<body value="/choosingInstructor/B1">' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
@@ -165,7 +165,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href='<c:url value="/choosingInstructor/B"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
@@ -178,7 +178,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href='<c:url value="/choosingInstructor/BE"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
@@ -191,7 +191,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href='<c:url value="/choosingInstructor/C"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
@@ -204,7 +204,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href='<c:url value="/choosingInstructor/C1"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
@@ -217,7 +217,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href='<c:url value="/choosingInstructor/C1E"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
@@ -230,7 +230,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href='<c:url value="/choosingInstructor/CE"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
@@ -243,7 +243,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href='<c:url value="/choosingInstructor/D"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
@@ -256,7 +256,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href='<c:url value="/choosingInstructor/D1"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
@@ -269,7 +269,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href='<c:url value="/choosingInstructor/D1E"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
@@ -282,7 +282,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href='<c:url value="/choosingInstructor/DE"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
@@ -295,7 +295,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href='<c:url value="/choosingInstructor/T"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
@@ -327,3 +327,5 @@
 
 
 <%@include file="../dynamic/javaScript.jspf" %>
+</body>
+</html>

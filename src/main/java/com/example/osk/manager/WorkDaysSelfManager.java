@@ -1,20 +1,16 @@
 package com.example.osk.manager;
 
 import com.example.osk.model.Log;
-import com.example.osk.model.TimeSlot;
 import com.example.osk.model.WorkDay;
 import com.example.osk.service.LoggerService;
 import com.example.osk.service.TimeSlotService;
 import com.example.osk.service.WorkDayService;
-import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.YearMonth;
-import java.util.HashSet;
-import java.util.Set;
 
 @Component
 public final class WorkDaysSelfManager implements CommandLineRunner {
@@ -125,22 +121,6 @@ public final class WorkDaysSelfManager implements CommandLineRunner {
             default:
                 throw new IllegalArgumentException();
         }
-    }
-
-    public Set<TimeSlot> getEmptyTimeSlotsSet(LocalDate day) {
-        boolean isWorkDay = day.getDayOfWeek() != DayOfWeek.SATURDAY & day.getDayOfWeek() != DayOfWeek.SUNDAY;
-        Set<TimeSlot> allTimeSlots = new HashSet<>();
-        allTimeSlots.add(new TimeSlot("07:00-08:00", isWorkDay));
-        allTimeSlots.add(new TimeSlot("08:00-09:00", isWorkDay));
-        allTimeSlots.add(new TimeSlot("09:00-10:00", isWorkDay));
-        allTimeSlots.add(new TimeSlot("10:00-11:00", isWorkDay));
-        allTimeSlots.add(new TimeSlot("11:00-12:00", isWorkDay));
-        allTimeSlots.add(new TimeSlot("13:00-14:00", isWorkDay));
-        allTimeSlots.add(new TimeSlot("14:00-15:00", isWorkDay));
-        allTimeSlots.add(new TimeSlot("15:00-16:00", isWorkDay));
-        allTimeSlots.add(new TimeSlot("16:00-17:00", isWorkDay));
-        this.timeSlotService.saveTimeSlot(allTimeSlots);
-        return allTimeSlots;
     }
 
     public static int getAmountOfDaysInMonth(int year, int month) {

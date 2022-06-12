@@ -15,4 +15,7 @@ public interface WorkDayRepository extends JpaRepository<WorkDay, Long> {
 
     @Query("SELECT w.id FROM workdays w WHERE w.certainDay = ?1")
     Long getIdOfCurrentDay(LocalDate date);
+
+    @Query("SELECT w FROM workdays w WHERE w.certainDay = ?1")
+    WorkDay findWorkDayObjectByDate (LocalDate certainDate);
 }

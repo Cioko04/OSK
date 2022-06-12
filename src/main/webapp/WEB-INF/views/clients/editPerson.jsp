@@ -115,7 +115,6 @@
                     </div>
                     <input class="btn btn-success pull-left" type="submit" value="Zapisz zmiany" id="searchButton"/>
 
-
                     <!-- Button to Open the Modal -->
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
                         Usuń
