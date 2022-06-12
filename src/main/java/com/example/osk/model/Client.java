@@ -45,5 +45,6 @@ public class Client {
         this.enabled = enabled;
         this.role = "ROLE_USER";
         this.allInstructors = new HashSet<>(allInstructors);
+
     }
 }

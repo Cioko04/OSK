@@ -8,17 +8,18 @@
     <link rel="stylesheet" href='<c:url value="/resources/plugins/fontawesome-free/css/all.min.css"/>'>
     <link rel="stylesheet" href='<c:url value="/resources/dist/css/login-page-style.css"/>'>
     <link rel="stylesheet" href='<c:url value="/resources/dist/css/semipolar.css"/>'>
+    <link rel="stylesheet" href='<c:url value="/resources/dist/css/main-style.css"/>'>
 </head>
 <body class="bg-color">
 <div class="container">
 <!-- Outer Row -->
 <div class="row justify-content-center">
-<div class="col-xl-10 col-lg-12 col-md-9">
-<div class="card o-hidden border-0 shadow-lg my-5 bg-gradient-light">
-<div class="card-body p-0">
+<div class="col-xl-10 col-lg-12 col-md-9 ">
+<div class="card o-hidden border-0 shadow-lg my-5 bg-gradient-light form-border">
+<div class="card-body p-0 ">
 <!-- Nested Row within Card Body -->
-<div class="row">
-<div class="col-lg-6 d-none d-lg-block p-5">
+<div class="row ">
+<div class="col-lg-6 d-none d-lg-block p-5 ">
     <div class="semipolar-spinner" :style="spinnerStyle">
         <div class="ring"></div>
         <div class="ring"></div>

@@ -39,6 +39,7 @@ public class InstructorController {
         return "instructors/addInstructor";
     }
 
+
     //getting the view of editing a certain instructor with model of that instructor
     @GetMapping("/editInstructor/{id}")
     public String getEditInstructorView(@PathVariable("id") Long id, Model model) {
@@ -54,26 +55,21 @@ public class InstructorController {
         return new RedirectView("/instructors");
     }
 
-    // confirming of editing a certain instructor and redirecting a view to /instructors
-    @PostMapping("/editInstructor/{id}")
+    // confirming of editing a certain instructor and redirecting a view to /
+    @PostMapping("/addInstructor/{id}")
     public RedirectView acceptEditingInstructor(@ModelAttribute Instructor instructor, @PathVariable("id") Long id) {
         this.instructorService.editInstructor(instructor);
         return new RedirectView("/");
     }
 
     //confirming of removing a certain instructor on page from OSC and redirecting a view to /instructors
-//    @PostMapping("/editInstructor/{id}")
-//    public RedirectView removeInstructor(@PathVariable("id") Long id) {
-//        this.instructorService.deleteInstructor(id);
-//        return new RedirectView("/instructors");
-//    }
-
-    // save edit client
-    @PostMapping("/addInstructor/{id}")
-    public RedirectView postEditClient(@Valid @ModelAttribute Instructor newInstructor, @PathVariable("id") Long id) {
-        instructorService.editInstructor(newInstructor);
+    @PostMapping("/editInstructor/{id}")
+    public RedirectView removeInstructor(@PathVariable("id") Long id) {
+        this.instructorService.deleteInstructor(id);
         return new RedirectView("/instructors");
     }
+
+
 
 
 

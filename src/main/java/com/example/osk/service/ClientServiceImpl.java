@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 @Qualifier("client")
 @Component
@@ -43,7 +44,10 @@ public class ClientServiceImpl implements ClientService {
     }
 
     public Client editClient(Client client) {
-        client.setPassword(bCryptPasswordEncoder.encode(client.getPassword()));
+        Pattern BCRYPT_PATTERN = Pattern.compile("\\A\\$2a?\\$\\d\\d\\$[./0-9A-Za-z]{53}");
+        if (!BCRYPT_PATTERN.matcher(client.getPassword()).matches()) {
+            client.setPassword(bCryptPasswordEncoder.encode(client.getPassword()));
+        }
         return this.clientRepository.save(client);
     }
 
