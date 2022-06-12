@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<title>OSK Service | Dashboard</title>
+<title>OSK Service | Instructor</title>
 
 <%@include file="../dynamic/link.jspf" %>
 
@@ -11,7 +11,20 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper background-main-image">
         <!-- Content Header (Page header) -->
-        <div class="content-header">
+        <div class="content-header bg-light mb-3 opacity section-border">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h1>Trenerzy</h1>
+                    </div>
+                    <div class="col-sm-6 d-none d-sm-block">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href='<c:url value="/"/>'>Strona główna</a></li>
+                            <li class="breadcrumb-item active">Trenerzy</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- /.content-header -->
 
