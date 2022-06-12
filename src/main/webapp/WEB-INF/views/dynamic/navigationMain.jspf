@@ -3,11 +3,16 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 
 <!-- Main Sidebar Container -->
+
 <nav class="main-header navbar navbar-expand top-nav-bar">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="a-link-sidebar" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            <a class="a-link-sidebar" data-widget="pushmenu"
+<sec:authorize access="isAnonymous()">
+               data-auto-collapse-size="2000"
+</sec:authorize>
+               href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
     </ul>
 

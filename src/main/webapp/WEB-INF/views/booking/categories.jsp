@@ -1,38 +1,50 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ page contentType="text/html; charset=UTF-8" %>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+    <%@ page contentType="text/html; charset=UTF-8" %>
+    <title>OSK Service | Kursy</title>
 
-
-<%@include file="../dynamic/link.jspf" %>
+    <%@include file="../dynamic/link.jspf" %>
+</head>
+<!--
+`body` tag options:
 
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
-    <!-- /.navbar -->
-    <%--    Sidebar--%>
     <%@include file="../dynamic/navigationMain.jspf"%>
-    <%--    End of sidebar--%>
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper background-main-image">
         <!-- Content Header (Page header) -->
-
+        <div class="content-header bg-light mb-3 opacity section-border">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h1>Kursy</h1>
+                    </div>
+                    <div class="col-sm-6 d-none d-sm-block">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href='<c:url value="/"/>'>Strona główna</a></li>
+                            <li class="breadcrumb-item active">Kursy</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- /.content-header -->
 
         <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
+        <section class="content opacity">
+            <div class="container-fluid ">
                 <!-- Info boxes -->
-                <div class="row">
+                <div class="row ">
                     <div class="col-12 col-sm-6 col-md-3">
                         <div class="info-box">
-                            <span class="info-box-icon bg-info elevation-1"><i class="fa fa-align-justify"></i></span>
+                            <span class="info-box-icon bg-primary elevation-1"><i class="fa fa-user"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">Iłość instruktorów szkoły w Polsce</span>
-                                <span class="info-box-number">
-                  184
-                </span>
+                                <span class="info-box-text">Ilość instruktorów</span>
+                                <span class="info-box-number">${instructorsCount}</span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
@@ -41,11 +53,11 @@
                     <!-- /.col -->
                     <div class="col-12 col-sm-6 col-md-3">
                         <div class="info-box mb-3">
-                            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-thumbs-up"></i></span>
+                            <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-user-graduate"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">Polubienia</span>
-                                <span class="info-box-number">41,410</span>
+                                <span class="info-box-text">Ilość kursantów</span>
+                                <span class="info-box-number">${clientsCount}</span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
@@ -58,11 +70,11 @@
 
                     <div class="col-12 col-sm-6 col-md-3">
                         <div class="info-box mb-3">
-                            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-money-check-alt"></i></span>
+                            <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-car"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">Roczny obrót finansowy</span>
-                                <span class="info-box-number">126.000 Złotych</span>
+                                <span class="info-box-text">Ilość samochodów</span>
+                                <span class="info-box-number">${vehicleCount}</span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
@@ -71,10 +83,10 @@
                     <!-- /.col -->
                     <div class="col-12 col-sm-6 col-md-3">
                         <div class="info-box mb-3">
-                            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-car"></i></span>
+                            <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-tachometer-alt"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">Iłość samochodów</span>
+                                <span class="info-box-text">Ilość kursów</span>
                                 <span class="info-box-number">2,000</span>
                             </div>
                             <!-- /.info-box-content -->
@@ -90,9 +102,9 @@
             </div><!--/. container-fluid -->
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-2 col-2">
+                    <div class="col col-lg-2 opacity-08">
 
-                        <div class="small-box bg-info">
+                        <div class="small-box bg-primary">
                             <div class="inner">
                                 <h3>AM<sup style="font-size: 15px"> kategoria</sup></h3>
                                 <p>14 lat</p>
@@ -103,8 +115,8 @@
                             <a href='<c:url value="/choosingInstructor/AM"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-2">
-                        <div class="small-box bg-info">
+                    <div class="col col-lg-2 opacity-08">
+                        <div class="small-box bg-primary">
                             <div class="inner">
                                 <h3>A1<sup style="font-size: 15px"> kategoria</sup></h3>
 
@@ -116,9 +128,9 @@
                             <a href='<c:url value="/choosingInstructor/A1"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-2">
+                    <div class="col col-lg-2 opacity-08">
                         <!-- small box -->
-                        <div class="small-box bg-info">
+                        <div class="small-box bg-primary">
                             <div class="inner">
                                 <h3>A2<sup style="font-size: 15px"> kategoria</sup></h3>
 
@@ -130,8 +142,8 @@
                             <a href='<c:url value="/choosingInstructor/A2"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-2">
-                        <div class="small-box bg-info">
+                    <div class="col col-lg-2 opacity-08">
+                        <div class="small-box bg-primary">
                             <div class="inner">
                                 <h3>A<sup style="font-size: 15px"> kategoria</sup></h3>
 
@@ -143,8 +155,10 @@
                             <a href='<c:url value="/choosingInstructor/A"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-2">
-                        <div class="small-box bg-info">
+                </div>
+                <div class="row">
+                    <div class="col col-lg-2 opacity-08">
+                        <div class="small-box bg-primary">
                             <div class="inner">
                                 <h3>B1<sup style="font-size: 15px"> kategoria</sup></h3>
                                 <p>16 lat</p>
@@ -155,8 +169,8 @@
                             <a href='<body value="/choosingInstructor/B1">' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-2">
-                        <div class="small-box bg-info">
+                    <div class="col col-lg-2 opacity-08">
+                        <div class="small-box bg-primary">
                             <div class="inner">
                                 <h3>B<sup style="font-size: 15px"> kategoria</sup></h3>
 
@@ -168,8 +182,8 @@
                             <a href='<c:url value="/choosingInstructor/B"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-2">
-                        <div class="small-box bg-info">
+                    <div class="col col-lg-2 opacity-08">
+                        <div class="small-box bg-primary">
                             <div class="inner">
                                 <h3>B+E<sup style="font-size: 15px"> kategoria</sup></h3>
 
@@ -181,8 +195,10 @@
                             <a href='<c:url value="/choosingInstructor/BE"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-2">
-                        <div class="small-box bg-info">
+                </div>
+                <div class="row">
+                    <div class="col col-lg-2 opacity-08">
+                        <div class="small-box bg-primary">
                             <div class="inner">
                                 <h3>C<sup style="font-size: 15px"> kategoria</sup></h3>
 
@@ -194,8 +210,8 @@
                             <a href='<c:url value="/choosingInstructor/C"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-2">
-                        <div class="small-box bg-info">
+                    <div class="col col-lg-2 opacity-08">
+                        <div class="small-box bg-primary">
                             <div class="inner">
                                 <h3>C1<sup style="font-size: 15px"> kategoria</sup></h3>
 
@@ -207,8 +223,8 @@
                             <a href='<c:url value="/choosingInstructor/C1"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-2">
-                        <div class="small-box bg-info">
+                    <div class="col col-lg-2 opacity-08">
+                        <div class="small-box bg-primary">
                             <div class="inner">
                                 <h3>C1+E<sup style="font-size: 15px"> kategoria</sup></h3>
 
@@ -220,8 +236,8 @@
                             <a href='<c:url value="/choosingInstructor/C1E"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-2">
-                        <div class="small-box bg-info">
+                    <div class="col col-lg-2 opacity-08">
+                        <div class="small-box bg-primary">
                             <div class="inner">
                                 <h3>C+E<sup style="font-size: 15px"> kategoria</sup></h3>
 
@@ -233,8 +249,10 @@
                             <a href='<c:url value="/choosingInstructor/CE"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-2">
-                        <div class="small-box bg-info">
+                </div>
+                <div class="row">
+                    <div class="col col-lg-2 opacity-08">
+                        <div class="small-box bg-primary">
                             <div class="inner">
                                 <h3>D<sup style="font-size: 15px"> kategoria</sup></h3>
 
@@ -246,8 +264,8 @@
                             <a href='<c:url value="/choosingInstructor/D"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-2">
-                        <div class="small-box bg-info">
+                    <div class="col col-lg-2 opacity-08">
+                        <div class="small-box bg-primary">
                             <div class="inner">
                                 <h3>D1<sup style="font-size: 15px"> kategoria</sup></h3>
 
@@ -259,8 +277,8 @@
                             <a href='<c:url value="/choosingInstructor/D1"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-2">
-                        <div class="small-box bg-info">
+                    <div class="col col-lg-2 opacity-08">
+                        <div class="small-box bg-primary">
                             <div class="inner">
                                 <h3>D1+E<sup style="font-size: 15px"> kategoria</sup></h3>
 
@@ -272,8 +290,8 @@
                             <a href='<c:url value="/choosingInstructor/D1E"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-2">
-                        <div class="small-box bg-info">
+                    <div class="col col-lg-2 opacity-08">
+                        <div class="small-box bg-primary">
                             <div class="inner">
                                 <h3>D+E<sup style="font-size: 15px"> kategoria</sup></h3>
 
@@ -285,8 +303,10 @@
                             <a href='<c:url value="/choosingInstructor/DE"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-2">
-                        <div class="small-box bg-info">
+                </div>
+                <div class="row">
+                    <div class="col col-lg-2 opacity-08">
+                        <div class="small-box bg-primary">
                             <div class="inner">
                                 <h3>T<sup style="font-size: 15px"> kategoria</sup></h3>
 
@@ -298,8 +318,8 @@
                             <a href='<c:url value="/choosingInstructor/T"/>' class="small-box-footer">Idziemy dalej <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-2">
-                        <div class="small-box bg-info">
+                    <div class="col-lg-2 col-2 opacity-08">
+                        <div class="small-box bg-primary">
                             <div class="inner">
                                 <h3>Tramwaj</h3>
 
@@ -313,19 +333,14 @@
                     </div>
                 </div>
             </div>
+
         </section>
-        <!-- /.content -->
-    </div>
-
-    <!-- Main Footer -->
-    <%@include file="../dynamic/footer.jspf"%>>
 </div>
-
-
-
-
-
-
+</div>
+    <!-- /.content -->
+<!-- /.content-wrapper -->
+<%@include file="../dynamic/footer.jspf"%>
+<!-- ./wrapper -->
 <%@include file="../dynamic/javaScript.jspf" %>
 </body>
 </html>

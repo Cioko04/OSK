@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
-import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -66,17 +65,17 @@ public class InstructorController {
         return new RedirectView("/instructors");
     }
 
-    // confirming of editing a certain instructor and redirecting a view to /instructors
-    @PostMapping("/editInstructor/{id}")
+    // confirming of editing a certain instructor and redirecting a view to /
+    @PostMapping("/addInstructor/{id}")
     public RedirectView acceptEditingInstructor(@ModelAttribute Instructor instructor, @PathVariable("id") Long id) {
         this.instructorService.editInstructor(instructor);
         return new RedirectView("/");
     }
 
-    // save edit client
-    @PostMapping("/addInstructor/{id}")
-    public RedirectView postEditClient(@Valid @ModelAttribute Instructor newInstructor, @PathVariable("id") Long id) {
-        instructorService.editInstructor(newInstructor);
+    //confirming of removing a certain instructor on page from OSC and redirecting a view to /instructors
+    @PostMapping("/editInstructor/{id}")
+    public RedirectView removeInstructor(@PathVariable("id") Long id) {
+        this.instructorService.deleteInstructor(id);
         return new RedirectView("/instructors");
     }
 }
