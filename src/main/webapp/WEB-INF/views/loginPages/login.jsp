@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>OSK Projekt | Validation Form</title>
+    <title>OSK Service | Logowanie</title>
     <link rel="stylesheet" href='<c:url value="/resources/plugins/fontawesome-free/css/all.min.css"/>'>
     <link rel="stylesheet" href='<c:url value="/resources/dist/css/login-page-style.css"/>'>
     <link rel="stylesheet" href='<c:url value="/resources/dist/css/semipolar.css"/>'>

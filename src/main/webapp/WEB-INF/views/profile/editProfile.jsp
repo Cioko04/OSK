@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<title>OSK Service | Dashboard</title>
+<title>OSK Service | Profil</title>
 
 <%@include file="../dynamic/link.jspf" %>
 

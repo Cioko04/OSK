@@ -1,5 +1,6 @@
 package com.example.osk.service;
 
+import com.example.osk.model.Instructor;
 import com.example.osk.model.Vehicle;
 import com.example.osk.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,8 @@ public class VehicleService {
 
     public void deleteVehicle(Long id) {
         this.vehicleRepository.deleteById(id);
+    }
+    public Long getCountOfVehicles() {
+        return this.vehicleRepository.count();
     }
 }
